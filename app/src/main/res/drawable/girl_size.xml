@@ -4,6 +4,6 @@
     <item
         android:drawable="@drawable/girl1"
         android:width="25dp"
-        android:height="35dp"
+        android:height="43dp"
         tools:ignore="ResourceCycle" />
 </layer-list>
