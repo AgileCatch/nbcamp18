@@ -7,7 +7,7 @@
     tools:context=".SIgnInPage">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress3"
+        android:id="@+id/newEmailId"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="210dp"
         android:layout_height="48dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress4"
+        android:id="@+id/newPW"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="210dp"
         android:layout_height="48dp"
@@ -33,14 +33,14 @@
         android:background="@drawable/border"
         android:ems="10"
         android:hint="   비밀번호"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:selectAllOnFocus="false"
 
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress3" />
+        app:layout_constraintTop_toBottomOf="@+id/newEmailId" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/newNickName"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="210dp"
         android:layout_height="48dp"
@@ -62,17 +62,17 @@
         android:background="@drawable/border"
         android:ems="10"
         android:hint="   닉네임"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:selectAllOnFocus="false"
 
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
+        app:layout_constraintTop_toBottomOf="@+id/newPW" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/NewName"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="210dp"
         android:layout_height="48dp"
@@ -80,13 +80,13 @@
         android:background="@drawable/border"
         android:ems="10"
         android:hint="   이름"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/newNickName" />
 
     <Button
         android:id="@+id/button2"
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/NewName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
