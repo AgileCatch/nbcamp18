@@ -255,8 +255,6 @@
                 android:layout_gravity="center"
                 android:background="@color/gray" />
 
-            1`
-
             <Button
                 android:id="@+id/bt_guestbook"
                 android:layout_width="match_parent"
