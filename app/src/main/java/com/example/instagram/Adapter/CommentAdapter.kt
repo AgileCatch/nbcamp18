@@ -14,11 +14,11 @@ import com.example.instagram.R
 class CommentAdapter(val commentList:ArrayList<Comment>) : RecyclerView.Adapter<CommentAdapter.CustomViewHolder>(){
 
     class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name = itemView.findViewById<TextView>(R.id.rv_name)
-        val nicname = itemView.findViewById<TextView>(R.id.rv_nicname)
-        val profileimg = itemView.findViewById<ImageView>(R.id.rv_profile)
+        val name = itemView.findViewById<TextView>(R.id.lv_name)
+        val nicname = itemView.findViewById<TextView>(R.id.lv_nicname)
+        val profileimg = itemView.findViewById<ImageView>(R.id.lv_profile)
         val datetime = itemView.findViewById<TextView>(R.id.datetime)
-        val content =itemView.findViewById<TextView>(R.id.rv_content)
+        val content =itemView.findViewById<TextView>(R.id.lv_comment)
 
     }
 
