@@ -96,11 +96,11 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
+                style="@style/circle_profile_img"
                 android:layout_width="92dp"
                 android:layout_height="92dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                style="@style/circle_profile_img"
                 android:src="@drawable/girl1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -258,7 +258,7 @@
                 android:layout_gravity="center"
                 android:background="@color/gray" />
 
-<Button
+            <Button
                 android:id="@+id/bt_guestbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -386,18 +386,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <TextView
+            <EditText
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="우리는코믹자매예요"
-                android:background="@drawable/profile_circle"
-                android:textSize="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:hint="일촌명을 작성해주세요."
+                android:maxLength="10"
+                android:textSize="13dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -432,10 +433,9 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/gray"
-                android:hint="일촌평을 작성해주세요."
+                android:hint="일촌평을 작성해주세요.(100글자 제한)"
                 android:maxLength="100"
                 android:padding="10dp"
-                android:text="잘지내냐 지나가다가 발자국 남긴다..."
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

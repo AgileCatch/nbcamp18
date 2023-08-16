@@ -18,7 +18,7 @@ class CommentAdapter(val commentList:ArrayList<Comment>) : RecyclerView.Adapter<
         val nicname = itemView.findViewById<TextView>(R.id.rv_nicname)
         val profileimg = itemView.findViewById<ImageView>(R.id.rv_profile)
         val datetime = itemView.findViewById<TextView>(R.id.datetime)
-        val content =itemView.findViewById<TextView>(R.id.rv_content)
+        val content =itemView.findViewById<TextView>(R.id.rv_comment)
 
     }
 
