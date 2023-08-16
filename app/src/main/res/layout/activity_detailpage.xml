@@ -34,7 +34,7 @@
 
             <!-- 왼쪽과 오른쪽 요소를 구분하기 위한 공간 -->
             <Space
-                android:layout_width="220dp"
+                android:layout_width="190dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
@@ -258,8 +258,7 @@
                 android:layout_gravity="center"
                 android:background="@color/gray" />
 
-
-            <Button
+<Button
                 android:id="@+id/bt_guestbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
