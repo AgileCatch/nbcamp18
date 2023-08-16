@@ -1,7 +1,6 @@
 package com.example.instagram
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -19,7 +18,7 @@ class FeedAdapter(val feedList:ArrayList<Feed>) : RecyclerView.Adapter<FeedAdapt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedAdapter.CustomViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_rv, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_feed_recycler, parent, false)
         return CustomViewHolder(view)
     }
 
