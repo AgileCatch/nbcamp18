@@ -7,7 +7,6 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.FeedAdapter
-import com.example.instagram.Data.Feed
 import com.example.instagram.Data.Userinfo
 
 class MainPage : AppCompatActivity() {
@@ -54,11 +53,10 @@ class MainPage : AppCompatActivity() {
 
 
         val feedList = arrayListOf(
-            Feed(proflieList[0].profileImg, proflieList[0].nickname, proflieList[0].miniroom, proflieList[0].description),
-            Feed(proflieList[1].profileImg, proflieList[1].nickname, proflieList[1].miniroom, proflieList[1].description),
-            Feed(R.drawable.girl2, "seunghyeon", R.drawable.miniroom3, "미니룸입니다!"),
-            Feed(R.drawable.man2, "joohwan", R.drawable.miniroom4, "미니룸입니다!"),
-
+            Userinfo(proflieList[0].id, proflieList[0].profileImg, proflieList[0].miniroom, proflieList[0].description),
+            Userinfo(proflieList[1].id, proflieList[1].profileImg, proflieList[1].miniroom, proflieList[1].description),
+            Userinfo(proflieList[0].id, proflieList[0].profileImg, proflieList[0].miniroom, proflieList[0].description),
+            Userinfo(proflieList[1].id, proflieList[1].profileImg, proflieList[1].miniroom, proflieList[1].description),
         )
 
         val rv_feed = findViewById<RecyclerView>(R.id.rv_feed)
