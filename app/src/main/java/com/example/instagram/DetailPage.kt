@@ -18,6 +18,7 @@ class DetailPage : AppCompatActivity() {
         val toolbarName = findViewById<TextView>(R.id.rightText)
         val dName = findViewById<TextView>(R.id.tv_name)
         val dProfileImg = findViewById<ImageView>(R.id.rightImageView)
+        val dProfileImgSquare = findViewById<ImageButton>(R.id.imb_profile)
         val dtoday = findViewById<TextView>(R.id.tv_today_num)
         val dintroduce = findViewById<TextView>(R.id.tv_description)
         val dIlchon = findViewById<TextView>(R.id.tv_1chon_num)
@@ -54,6 +55,7 @@ class DetailPage : AppCompatActivity() {
         toolbarName.text = "${name}의 미니홈피"
         dName.text = name
         dProfileImg.setImageResource(profileImg)
+        dProfileImgSquare.setImageResource(profileImg)
         dtoday.text = today.toString()
         dintroduce.text = description
         dIlchon.text = ilchon.toString()
