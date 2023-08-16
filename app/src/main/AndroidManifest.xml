@@ -17,6 +17,14 @@
             android:exported="false" />
 
         <activity
+            android:name=".SIgnInPage"
+            android:exported="false" />
+
+        <activity
+            android:name=".DetailPageActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainPageActivity"
             android:exported="true">
             <intent-filter>

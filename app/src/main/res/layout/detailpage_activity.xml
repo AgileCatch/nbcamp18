@@ -32,36 +32,27 @@
                 android:contentDescription="뒤로가기버튼"
                 android:src="@drawable/baseline_arrow_back_24" />
 
-            <!-- 왼쪽과 오른쪽 요소를 구분하기 위한 공간 -->
-            <Space
-                android:layout_width="190dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
 
-            <!-- 오른쪽 텍스트와 이미지뷰 -->
-            <LinearLayout
+            <ImageView
+                android:id="@+id/rightImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/girl1" />
+
+            <TextView
+                android:id="@+id/rightText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:text="김사이의 미니홈피"
+                android:layout_marginRight="3dp"
+                android:fontFamily="@font/neodgm"
+                android:layout_gravity="right"
+                android:textColor="@android:color/white" />
 
-                <TextView
-                    android:id="@+id/rightText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="김사이의 미니홈피"
-                    android:layout_marginRight="3dp"
-                    android:fontFamily="@font/neodgm"
-                    android:layout_gravity="center"
-                    android:textColor="@android:color/white" />
 
-                <ImageView
-                    android:id="@+id/rightImageView"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/girl1" />
-            </LinearLayout>
+
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -105,7 +96,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_today"
+                android:id="@+id/today"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -316,6 +307,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/iv_miniroom"
                 android:layout_width="370dp"
                 android:layout_height="160dp"
                 android:layout_marginStart="15dp"

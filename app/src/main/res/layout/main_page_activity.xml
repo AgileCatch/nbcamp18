@@ -95,67 +95,63 @@
                     android:gravity="center">
 
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/ib_profile1"
                         style="@style/circle_profile_img"
                         android:layout_marginStart="32dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/girl1"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+                        app:layout_constraintEnd_toStartOf="@+id/ib_profile2"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/ib_profile2"
                         style="@style/circle_profile_img"
                         android:layout_marginStart="50dp"
                         android:src="@drawable/man1"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+                        app:layout_constraintBottom_toBottomOf="@+id/ib_profile1"
+                        app:layout_constraintEnd_toStartOf="@+id/ib_profile3"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton2"
+                        app:layout_constraintStart_toEndOf="@+id/ib_profile1"
+                        app:layout_constraintTop_toTopOf="@+id/ib_profile1"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/ib_profile3"
                         style="@style/circle_profile_img"
                         android:layout_marginStart="50dp"
                         android:src="@drawable/girl2"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
-                        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+                        app:layout_constraintBottom_toBottomOf="@+id/ib_profile2"
+                        app:layout_constraintEnd_toStartOf="@+id/ib_profile4"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+                        app:layout_constraintStart_toEndOf="@+id/ib_profile2"
+                        app:layout_constraintTop_toTopOf="@+id/ib_profile2"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <ImageButton
-                        android:id="@+id/imageButton5"
+                        android:id="@+id/ib_profile4"
                         style="@style/circle_profile_img"
                         android:layout_marginStart="50dp"
                         android:layout_marginEnd="32dp"
                         android:src="@drawable/man2"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+                        app:layout_constraintBottom_toBottomOf="@+id/ib_profile3"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton4"
+                        app:layout_constraintStart_toEndOf="@+id/ib_profile3"
+                        app:layout_constraintTop_toTopOf="@+id/ib_profile3"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
             </LinearLayout>
 
         </HorizontalScrollView>
 
-
-
-
     </androidx.cardview.widget.CardView>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_feed"

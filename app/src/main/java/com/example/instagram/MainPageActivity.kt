@@ -1,7 +1,11 @@
 package com.example.instagram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
+import android.util.Log
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -10,7 +14,43 @@ class MainPageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page_activity)
 
-        val profileList = arrayListOf(
+        var proflieList = listOf<Userinfo>(
+            Userinfo("김영현", 0, "안녕하세요\n김영현 미니홈피입니다.", 100, 900, R.drawable.miniroom),
+            Userinfo("추지연", 0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2),
+        )
+
+        val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
+        val ibProfile2 = findViewById<ImageButton>(R.id.ib_profile2)
+
+
+        ibProfile1.setOnClickListener {
+            val intent = Intent(this, DetailPageActivity::class.java)
+            var userinfo = proflieList[0]
+            userinfo.today = userinfo.today + 1
+            intent.putExtra("name", userinfo.name)
+            intent.putExtra("today", userinfo.today)
+            intent.putExtra("description", userinfo.description)
+            intent.putExtra("ilchon", userinfo.ilchon)
+            intent.putExtra("favorites", userinfo.favorites)
+            intent.putExtra("miniroomImg", userinfo.miniroom)
+            startActivity(intent)
+        }
+
+        ibProfile2.setOnClickListener {
+            val intent = Intent(this, DetailPageActivity::class.java)
+            var userinfo = proflieList[1]
+            userinfo.today = userinfo.today + 1
+            intent.putExtra("name", userinfo.name)
+            intent.putExtra("today", userinfo.today)
+            intent.putExtra("description", userinfo.description)
+            intent.putExtra("ilchon", userinfo.ilchon)
+            intent.putExtra("favorites", userinfo.favorites)
+            intent.putExtra("miniroomImg", userinfo.miniroom)
+            startActivity(intent)
+        }
+
+
+        val feedList = arrayListOf(
             Feed(R.drawable.girl1, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
             Feed(R.drawable.man1, "jiyeon", R.drawable.miniroom2, "미니룸입니다!"),
             Feed(R.drawable.girl2, "seunghyeon", R.drawable.miniroom3, "미니룸입니다!"),
@@ -22,7 +62,7 @@ class MainPageActivity : AppCompatActivity() {
         rv_feed.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_feed.setHasFixedSize(true)
 
-        rv_feed.adapter = FeedAdapter(profileList)
+        rv_feed.adapter = FeedAdapter(feedList)
 
     }
 }
