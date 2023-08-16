@@ -11,12 +11,10 @@ class MainPageActivity : AppCompatActivity() {
         setContentView(R.layout.main_page_activity)
 
         val profileList = arrayListOf(
-            Feed(R.drawable.dog4_circle, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
-            Feed(R.drawable.dog3_circle, "jiyeon", R.drawable.miniroom2, "미니룸입니다!"),
-            Feed(R.drawable.dog4_circle, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
-            Feed(R.drawable.dog3_circle, "jiyeon", R.drawable.miniroom2, "미니룸입니다!"),
-            Feed(R.drawable.dog4_circle, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
-            Feed(R.drawable.dog3_circle, "jiyeon", R.drawable.miniroom2, "미니룸입니다!")
+            Feed(R.drawable.girl1, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
+            Feed(R.drawable.man1, "jiyeon", R.drawable.miniroom2, "미니룸입니다!"),
+            Feed(R.drawable.girl2, "seunghyeon", R.drawable.miniroom3, "미니룸입니다!"),
+            Feed(R.drawable.man2, "joohwan", R.drawable.miniroom4, "미니룸입니다!"),
 
         )
 
