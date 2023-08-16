@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:src="@drawable/logo_world"
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="20dp"/>
+
+        <ImageButton
+            android:id="@+id/iv_circle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:background="@drawable/profile_circle"
+            android:src="@drawable/dog4_circle"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="20dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <TextView
+            android:fontFamily="@font/neodgm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="@string/welcometext"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:fontFamily="@font/neodgm"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/personal_page"
+            android:textStyle="bold"/>
+
+        <Button
+            android:fontFamily="@font/neodgm"
+            android:id="@+id/button"
+            android:layout_width="50dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:background="#00ff0000"
+            android:text="@string/edit"
+            android:layout_gravity="right"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_marginTop="8dp"
+                        style="@style/circle_profile_img"
+                        android:src="@drawable/dog4_circle"
+                        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        style="@style/circle_profile_img"
+                        android:src="@drawable/dog3_circle"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+                        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                        app:layout_constraintTop_toTopOf="@+id/imageButton2"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        style="@style/circle_profile_img"
+                        android:src="@drawable/dog4_circle"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+                        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                        app:layout_constraintTop_toTopOf="@+id/imageButton3"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        style="@style/circle_profile_img"
+                        android:src="@drawable/dog4_circle"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+                        app:layout_constraintTop_toTopOf="@+id/imageButton4"
+                        tools:ignore="SpeakableTextPresentCheck" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_feed"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="220dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
