@@ -13,9 +13,17 @@
         android:theme="@style/Theme.Instagram"
         tools:targetApi="31">
         <activity
+            android:name=".PhotoAlbumActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditPhotoActivity"
+            android:exported="false" />
+        <activity
             android:name=".SIgnUpPage"
             android:exported="false" />
-
         <activity
             android:name=".SIgnInPage"
             android:exported="true">
