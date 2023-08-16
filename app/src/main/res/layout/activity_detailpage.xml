@@ -94,7 +94,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/imageButton"
+                        android:id="@+id/imb_profile"
                         style="@style/circle_profile_img"
                         android:layout_width="92dp"
                         android:layout_height="92dp"
@@ -112,8 +112,8 @@
                         android:layout_marginTop="5dp"
                         android:text="TODAY           | 999"
                         android:textSize="10dp"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                        app:layout_constraintStart_toEndOf="@+id/imb_profile"
+                        app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
 
                     <TextView
@@ -124,8 +124,8 @@
                         android:layout_marginTop="50dp"
                         android:text="사이좋은 사람들 \n싸이월드"
                         android:textSize="12dp"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                        app:layout_constraintStart_toEndOf="@+id/imb_profile"
+                        app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_name"
@@ -136,8 +136,8 @@
                         android:text="김사이"
                         android:textSize="15dp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                        app:layout_constraintStart_toEndOf="@+id/imb_profile"
+                        app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_today_num"
@@ -149,8 +149,8 @@
                         android:textColor="@color/orenge"
                         android:textSize="10dp"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton"
-                        app:layout_constraintTop_toTopOf="@+id/imageButton" />
+                        app:layout_constraintStart_toEndOf="@+id/imb_profile"
+                        app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_1chon"
@@ -165,7 +165,7 @@
                         android:textSize="13dp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_1chon_num"
@@ -176,7 +176,7 @@
                         android:text="999"
                         android:textSize="12dp"
                         app:layout_constraintStart_toEndOf="@+id/tv_1chon"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_favorites"
@@ -190,7 +190,7 @@
                         android:textSize="13dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/tv_1chon_num"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_favorites_num"
@@ -203,7 +203,7 @@
                         android:textSize="12dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tv_favorites"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
                     <TextView
                         android:id="@+id/tv_todayicon"
@@ -217,7 +217,7 @@
                         android:textSize="16dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
