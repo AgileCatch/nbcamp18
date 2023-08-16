@@ -2,6 +2,7 @@ package com.example.instagram
 
 import android.media.Image
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,11 @@ class DetailPageActivity : AppCompatActivity() {
         val dIlchon = findViewById<TextView>(R.id.tv_1chon_num)
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dMiniroom = findViewById<ImageView>(R.id.iv_miniroom)
+
+        val backButton = findViewById<ImageButton>(R.id.imb_back)
+        backButton.setOnClickListener {
+            finish()
+        }
 
         val name = intent.getStringExtra("name")
         var today = intent.getIntExtra("today", 0)
