@@ -14,7 +14,7 @@
         tools:targetApi="31">
         <activity
             android:name=".PhotoAlbumActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".AddPhotoActivity"
             android:exported="false" />
