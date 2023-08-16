@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="환영합니다. 김영현님!"
+            android:text="@string/welcometext"
             android:textStyle="bold"
             android:layout_marginRight="10dp"/>
 
@@ -64,7 +64,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
-            android:text="개인페이지"
+            android:text="@string/personal_page"
             android:textStyle="bold"/>
 
         <Button
@@ -74,7 +74,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:background="#00ff0000"
-            android:text="Edit"
+            android:text="@string/edit"
             android:layout_gravity="right"/>
 
         <ScrollView
@@ -94,11 +94,8 @@
 
                     <ImageButton
                         android:id="@+id/imageButton2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/profile_circle"
-                        android:scaleType="fitXY"
+                        style="@style/circle_profile_img"
                         android:src="@drawable/dog4_circle"
                         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -108,10 +105,7 @@
 
                     <ImageButton
                         android:id="@+id/imageButton3"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/profile_circle"
-                        android:scaleType="fitXY"
+                        style="@style/circle_profile_img"
                         android:src="@drawable/dog3_circle"
                         app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
                         app:layout_constraintEnd_toStartOf="@+id/imageButton4"
@@ -122,10 +116,7 @@
 
                     <ImageButton
                         android:id="@+id/imageButton4"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/profile_circle"
-                        android:scaleType="fitXY"
+                        style="@style/circle_profile_img"
                         android:src="@drawable/dog4_circle"
                         app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
                         app:layout_constraintEnd_toStartOf="@+id/imageButton5"
@@ -136,10 +127,7 @@
 
                     <ImageButton
                         android:id="@+id/imageButton5"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/profile_circle"
-                        android:scaleType="fitXY"
+                        style="@style/circle_profile_img"
                         android:src="@drawable/dog4_circle"
                         app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
                         app:layout_constraintEnd_toEndOf="parent"

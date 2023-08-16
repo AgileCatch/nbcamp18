@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">instagram</string>
+
+    <string name="welcometext">환영합니다. 김영현님!</string>
+    <string name="personal_page">개인페이지</string>
+    <string name="edit">EDIT</string>
 </resources>
