@@ -7,10 +7,10 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Data.Feed
+import com.example.instagram.Data.Userinfo
 import com.example.instagram.R
 
-class FeedAdapter(val feedList: ArrayList<Feed>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
+class FeedAdapter(val feedList: ArrayList<Userinfo>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
 
     class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         val profileImg = itemView.findViewById<ImageButton>(R.id.ib_profile)
@@ -26,9 +26,9 @@ class FeedAdapter(val feedList: ArrayList<Feed>) : RecyclerView.Adapter<FeedAdap
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.profileImg.setImageResource(feedList.get(position).profileImg)
-        holder.profileName.text = feedList.get(position).profileName
-        holder.feedImg.setImageResource(feedList.get(position).feedImg)
-        holder.feedText.text = feedList.get(position).feedText
+        holder.profileName.text = feedList.get(position).id
+        holder.feedImg.setImageResource(feedList.get(position).miniroom)
+        holder.feedText.text = feedList.get(position).description
     }
 
     override fun getItemCount(): Int {
