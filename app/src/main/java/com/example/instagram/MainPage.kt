@@ -3,13 +3,14 @@ package com.example.instagram
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.util.Log
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.instagram.Adapter.FeedAdapter
+import com.example.instagram.Data.Feed
+import com.example.instagram.Data.Userinfo
 
-class MainPageActivity : AppCompatActivity() {
+class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page_activity)
@@ -24,7 +25,7 @@ class MainPageActivity : AppCompatActivity() {
 
 
         ibProfile1.setOnClickListener {
-            val intent = Intent(this, DetailPageActivity::class.java)
+            val intent = Intent(this, DetailPage::class.java)
             var userinfo = proflieList[0]
             userinfo.today = userinfo.today + 1
             intent.putExtra("name", userinfo.name)
@@ -38,7 +39,7 @@ class MainPageActivity : AppCompatActivity() {
         }
 
         ibProfile2.setOnClickListener {
-            val intent = Intent(this, DetailPageActivity::class.java)
+            val intent = Intent(this, DetailPage::class.java)
             var userinfo = proflieList[1]
             userinfo.today = userinfo.today + 1
             intent.putExtra("name", userinfo.name)

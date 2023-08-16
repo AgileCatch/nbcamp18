@@ -21,11 +21,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".DetailPageActivity"
+            android:name=".DetailPage"
             android:exported="false" />
 
         <activity
-            android:name=".MainPageActivity"
+            android:name=".MainPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

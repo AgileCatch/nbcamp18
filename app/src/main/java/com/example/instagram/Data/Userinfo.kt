@@ -1,4 +1,4 @@
-package com.example.instagram
+package com.example.instagram.Data
 
 data class Userinfo (
     val name:String,
