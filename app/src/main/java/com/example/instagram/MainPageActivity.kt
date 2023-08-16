@@ -15,8 +15,8 @@ class MainPageActivity : AppCompatActivity() {
         setContentView(R.layout.main_page_activity)
 
         var proflieList = listOf<Userinfo>(
-            Userinfo("김영현", 0, "안녕하세요\n김영현 미니홈피입니다.", 100, 900, R.drawable.miniroom),
-            Userinfo("추지연", 0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2),
+            Userinfo("김영현", "yeonghyeon", R.drawable.girl1,0, "안녕하세요\n김영현 미니홈피입니다.", 100, 900, R.drawable.miniroom),
+            Userinfo("추지연", "jiyeon", R.drawable.man1,0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2),
         )
 
         val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
@@ -28,6 +28,7 @@ class MainPageActivity : AppCompatActivity() {
             var userinfo = proflieList[0]
             userinfo.today = userinfo.today + 1
             intent.putExtra("name", userinfo.name)
+            intent.putExtra("profileImg", userinfo.profileImg)
             intent.putExtra("today", userinfo.today)
             intent.putExtra("description", userinfo.description)
             intent.putExtra("ilchon", userinfo.ilchon)
@@ -41,6 +42,7 @@ class MainPageActivity : AppCompatActivity() {
             var userinfo = proflieList[1]
             userinfo.today = userinfo.today + 1
             intent.putExtra("name", userinfo.name)
+            intent.putExtra("profileImg", userinfo.profileImg)
             intent.putExtra("today", userinfo.today)
             intent.putExtra("description", userinfo.description)
             intent.putExtra("ilchon", userinfo.ilchon)
@@ -51,8 +53,8 @@ class MainPageActivity : AppCompatActivity() {
 
 
         val feedList = arrayListOf(
-            Feed(R.drawable.girl1, "yeonghyeon", R.drawable.miniroom, "미니룸입니다!"),
-            Feed(R.drawable.man1, "jiyeon", R.drawable.miniroom2, "미니룸입니다!"),
+            Feed(proflieList[0].profileImg, proflieList[0].nickname, proflieList[0].miniroom, proflieList[0].description),
+            Feed(proflieList[1].profileImg, proflieList[1].nickname, proflieList[1].miniroom, proflieList[1].description),
             Feed(R.drawable.girl2, "seunghyeon", R.drawable.miniroom3, "미니룸입니다!"),
             Feed(R.drawable.man2, "joohwan", R.drawable.miniroom4, "미니룸입니다!"),
 

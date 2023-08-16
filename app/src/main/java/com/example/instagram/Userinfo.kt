@@ -2,6 +2,8 @@ package com.example.instagram
 
 data class Userinfo (
     val name:String,
+    val nickname:String,
+    var profileImg:Int,
     var today:Int,
     var description:String,
     var ilchon:Int,
