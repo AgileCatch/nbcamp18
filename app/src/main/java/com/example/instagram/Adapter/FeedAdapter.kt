@@ -30,21 +30,29 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.profileImg.setImageResource(feedList.get(position).profileImg)
-        holder.profileName.text = feedList.get(position).id
-        holder.feedImg.setImageResource(feedList.get(position).miniroom)
-        holder.feedText.text = feedList.get(position).description
+        val feedItem = feedList[position]
+
+        holder.profileImg.setImageResource(feedItem.profileImg)
+        holder.profileName.text = feedItem.id
+        holder.feedImg.setImageResource(feedItem.miniroom)
+        holder.feedText.text = feedItem.description
+
         holder.itemCard.setOnClickListener {
             val intent = Intent(it.context, DetailPage::class.java)
-            var userinfo = userList[position]
-            userinfo.today = userinfo.today + 1
-            intent.putExtra("name", userinfo.name)
-            intent.putExtra("profileImg", userinfo.profileImg)
-            intent.putExtra("today", userinfo.today)
-            intent.putExtra("description", userinfo.description)
-            intent.putExtra("ilchon", userinfo.ilchon)
-            intent.putExtra("favorites", userinfo.favorites)
-            intent.putExtra("miniroomImg", userinfo.miniroom)
+            val userId = feedItem.id
+            val userinfo = userList.find { it.id == userId }
+
+            userinfo?.let {
+                it.today = it.today + 1
+                intent.putExtra("name", it.name)
+                intent.putExtra("profileImg", it.profileImg)
+                intent.putExtra("today", it.today)
+                intent.putExtra("description", it.description)
+                intent.putExtra("ilchon", it.ilchon)
+                intent.putExtra("favorites", it.favorites)
+                intent.putExtra("miniroomImg", it.miniroom)
+            }
+
             it.context.startActivity(intent)
         }
     }
