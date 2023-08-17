@@ -2,6 +2,7 @@ package com.example.instagram
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -24,6 +25,7 @@ class MyPage() :  AppCompatActivity(){
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dMiniroom = findViewById<ImageView>(R.id.iv_miniroom)
         val droomname = findViewById<TextView>(R.id.roomname)
+        val photobutton = findViewById<Button>(R.id.bt_photo)
 
         val num = intent.getIntExtra("num", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
@@ -46,6 +48,11 @@ class MyPage() :  AppCompatActivity(){
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)
+            startActivity(intent)
+        }
+
+        photobutton.setOnClickListener {
+            val intent = Intent(this, PhotoAlbumPage::class.java)
             startActivity(intent)
         }
     }
