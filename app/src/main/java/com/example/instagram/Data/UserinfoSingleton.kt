@@ -9,6 +9,7 @@ object UserinfoSingleton {
         userList.add(userinfo)
     }
 
+
     fun updateUserinfo(userinfo: Userinfo, newName: String, newId: String, newProfileImg: Int, newToday: Int, newDescription: String, newIlchon: Int, newFavorites: Int, newMiniroom: Int, newRoomname:String) {
         userinfo.name = newName
         userinfo.id = newId

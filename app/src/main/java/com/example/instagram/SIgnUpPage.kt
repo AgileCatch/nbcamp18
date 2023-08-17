@@ -19,7 +19,7 @@ class SIgnUpPage : AppCompatActivity() {
         val newNickName = findViewById<EditText>(R.id.newNickName)
         val newName = findViewById<EditText>(R.id.NewName)
 
-
+        //새로운 사용자 정보 생성
 
 
         signUpBtn2.setOnClickListener {
@@ -29,8 +29,13 @@ class SIgnUpPage : AppCompatActivity() {
             val name = newName.text.toString()
 
 
-            UserinfoSingleton.addUserinfo(Userinfo("추지연", "jiyeon", R.drawable.girl2,0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2, "지연님의 미니룸"))
+            // 새로운 사용자 정보 생성
+            val newUserinfo = Userinfo(name, nickname, R.drawable.newprofile, 0, "", 0, 0, 0, "")
 
+            // 생성한 사용자 정보를 UserinfoSingleton에 추가
+            UserinfoSingleton.addUserinfo(newUserinfo)
+
+            //다음화면으로 이동하는 코드
             val signInPageIntent = Intent(this, SIgnInPage::class.java)
             signInPageIntent.putExtra("email", email)
             signInPageIntent.putExtra("password", password)
@@ -38,12 +43,11 @@ class SIgnUpPage : AppCompatActivity() {
             signInPageIntent.putExtra("name", name)
             startActivity(signInPageIntent)
 
-
             finish()
 
 
+        }
 
     }
-
-}}
+}
 

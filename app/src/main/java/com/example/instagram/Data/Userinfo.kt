@@ -1,5 +1,7 @@
 package com.example.instagram.Data
 
+import android.widget.EditText
+
 
 class Userinfo {
     var name:String = ""
