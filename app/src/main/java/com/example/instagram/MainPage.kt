@@ -15,6 +15,8 @@ class MainPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page_activity)
 
+
+
         var proflieList = listOf<Userinfo>(
             Userinfo("김영현", "yeonghyeon", R.drawable.girl1,0, "안녕하세요\n김영현 미니홈피입니다.", 100, 900, R.drawable.miniroom),
             Userinfo("추지연", "jiyeon", R.drawable.man1,0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2),
