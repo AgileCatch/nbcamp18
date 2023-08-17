@@ -41,8 +41,8 @@ class EditPhotoPage : AppCompatActivity() {
         //사진 추가하기
         val button = findViewById<Button>(R.id.edit_photo_add)
         button.setOnClickListener {
-            val titleInput = findViewById<EditText>(R.id.edit_title)//일촌명
-            val contentInput = findViewById<EditText>(R.id.edit_content)//일촌평
+            val titleInput = findViewById<EditText>(R.id.edit_title)//제목
+            val contentInput = findViewById<EditText>(R.id.edit_content)//내용
 
             val titleText = titleInput.text.toString()
             val contentText = contentInput.text.toString()
