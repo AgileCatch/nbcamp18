@@ -85,7 +85,7 @@ class DetailPage : AppCompatActivity() {
             if (ilchonText.isNotEmpty() && contentText.isNotEmpty()) {
                 if (ilchonText.length <= maxIlchonLength && contentText.length <= maxContentLength) {
                     val newComment =
-                        Comment("작성자 이름", ilchonText, R.drawable.girl2, "현재 날짜", contentText)
+                        Comment("작성자 이름", ilchonText, R.drawable.girl2, getCurrentDate(), contentText)
                     commentList.add(newComment)
                     rv_comment.adapter?.notifyItemInserted(commentList.size - 1)
 
@@ -109,6 +109,12 @@ class DetailPage : AppCompatActivity() {
                 showToast("비어있는 칸이 있습니다.")
             }
         }
+    }
+
+    // 현재 날짜를 가져오는 함수
+    private fun getCurrentDate(): String {
+        val currentDate = java.text.SimpleDateFormat("yyyy.MM.dd", java.util.Locale.getDefault()).format(java.util.Date())
+        return currentDate
     }
 
     // 팝업 메시지 표시 함수

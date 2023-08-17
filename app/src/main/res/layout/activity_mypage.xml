@@ -23,33 +23,34 @@
             android:background="@color/blue">
 
             <!-- 왼쪽 아이콘 버튼 -->
-            <ImageButton
-                android:id="@+id/imb_back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="start"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="뒤로가기버튼"
-                android:src="@drawable/baseline_arrow_back_24" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imb_back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="start"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="뒤로가기버튼"
+                    android:src="@drawable/baseline_arrow_back_24" />
 
 
-            <ImageView
-                android:id="@+id/rightImageView"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="right"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/girl1" />
+                <ImageButton
+                    android:id="@+id/create"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="뒤로가기버튼"
+                    android:src="@drawable/baseline_create_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/rightText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="3dp"
-                android:fontFamily="@font/neodgm"
-                android:text="김사이의 미니홈피"
-                android:textColor="@android:color/white" />
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -376,96 +377,17 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/friendssay" />
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/man1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-                    <EditText
-                        android:id="@+id/et_ilchon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/profile_circle"
-                        android:hint="일촌명을 적어주세요.(10자 제한)"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                        app:layout_constraintStart_toEndOf="@+id/imageView"
-                        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="조은이"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                        app:layout_constraintStart_toEndOf="@+id/et_ilchon"
-                        app:layout_constraintTop_toTopOf="@+id/imageView"
-                        app:layout_constraintVertical_bias="0.0" />
-
-
-                    <EditText
-                        android:id="@+id/et_content"
-                        android:layout_width="280dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@color/gray"
-                        android:hint="일촌평을 작성해주세요.(100자 제한)"
-                        android:maxLength="100"
-                        android:padding="10dp"
-                        android:textSize="12dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/et_ilchon"
-                        app:layout_constraintTop_toBottomOf="@+id/et_ilchon" />
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:padding="0dp"
-                        android:text="확인"
-                        android:textColor="@color/blue"
-                        android:textSize="13dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-                    <View
-                        android:id="@+id/view"
-                        android:layout_width="360dp"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="25dp"
-                        android:background="@color/gray"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.538"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/et_content"
-                        app:layout_constraintVertical_bias="0.006" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_comment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/view"
+                        app:layout_constraintTop_toBottomOf="@+id/view2"
                         app:layout_constraintVertical_bias="0.601" />
 
 
