@@ -1,5 +1,8 @@
 package com.example.instagram
+
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -17,7 +20,8 @@ val commentList = arrayListOf(
     Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
     Comment("추지연", "어느별에서왔니도대체", R.drawable.girl2, "2023.08.15", "■■■■■□90% 충전중"),
     Comment("이승현", "우린 먼가 달라", R.drawable.man1, "2023.08.14", "거기 하늘라이프죠?"),
-    Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),)
+    Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),
+)
 
 class DetailPage : AppCompatActivity() {
 
@@ -37,12 +41,19 @@ class DetailPage : AppCompatActivity() {
 
         val commentButton = findViewById<Button>(R.id.button)
         val Etilchon = findViewById<EditText>(R.id.et_ilchon)
-        val Etcontent  = findViewById<EditText>(R.id.et_content)
+        val Etcontent = findViewById<EditText>(R.id.et_content)
 
         //뒤로가기 버튼작동
         val backButton = findViewById<ImageButton>(R.id.imb_back)
         backButton.setOnClickListener {
             finish()
+        }
+
+        //사진첩으로 화면전환
+        val bt_photo = findViewById<Button>(R.id.bt_photo)
+        bt_photo.setOnClickListener {
+            val intent = Intent(this, PhotoAlbumPage::class.java)
+            startActivity(intent)
         }
 
         //댓글 리사이클 뷰 연결
@@ -72,6 +83,7 @@ class DetailPage : AppCompatActivity() {
         dFavorites.text = favorites.toString()
         dMiniroom.setImageResource(miniroom)
 
+
         //일촌평 추가하기
         val button = findViewById<Button>(R.id.button)
         button.setOnClickListener {
@@ -89,7 +101,13 @@ class DetailPage : AppCompatActivity() {
             if (ilchonText.isNotEmpty() && contentText.isNotEmpty()) {
                 if (ilchonText.length <= maxIlchonLength && contentText.length <= maxContentLength) {
                     val newComment =
-                        Comment("작성자 이름", ilchonText, R.drawable.girl2, getCurrentDate(), contentText)
+                        Comment(
+                            "작성자 이름",
+                            ilchonText,
+                            R.drawable.girl2,
+                            getCurrentDate(),
+                            contentText
+                        )
                     commentList.add(newComment)
                     rv_comment.adapter?.notifyItemInserted(commentList.size - 1)
 
@@ -98,7 +116,7 @@ class DetailPage : AppCompatActivity() {
                     // 입력 필드 비우기
                     ilchonInput.text.clear()
                     contentInput.text.clear()
-                }else {
+                } else {
                     if (ilchonText.length > maxIlchonLength) {
                         // 일촌명 글자 제한 초과 팝업 메시지
                         showToast("일촌명은 ${maxIlchonLength}자 이하로 입력해주세요.")
@@ -117,7 +135,8 @@ class DetailPage : AppCompatActivity() {
 
     // 현재 날짜를 가져오는 함수
     private fun getCurrentDate(): String {
-        val currentDate = java.text.SimpleDateFormat("yyyy.MM.dd", java.util.Locale.getDefault()).format(java.util.Date())
+        val currentDate = java.text.SimpleDateFormat("yyyy.MM.dd", java.util.Locale.getDefault())
+            .format(java.util.Date())
         return currentDate
     }
 

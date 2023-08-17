@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditPhotoPage">
+    tools:context=".EditPhotoPage"
+    android:background="@color/background">
 
     <!-- AppBarLayout을 추가합니다 -->
     <com.google.android.material.appbar.AppBarLayout
@@ -97,13 +98,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/edit_photo_title"
+                    <EditText
+                        android:id="@+id/edit_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="15dp"
                         android:hint="제목을 입력하세요."
+                        android:background="@drawable/profile_circle"
                         android:textSize="15dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -136,10 +138,10 @@
                         android:background="@color/gray"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/edit_photo_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/edit_title" />
 
                     <EditText
-                        android:id="@+id/et_content"
+                        android:id="@+id/edit_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
