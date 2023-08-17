@@ -44,6 +44,7 @@ class SIgnUpPage : AppCompatActivity() {
                 signInPageIntent.putExtra("nickname", nickname)
                 signInPageIntent.putExtra("name", name)
                 startActivity(signInPageIntent)
+                setResult(Activity.RESULT_OK, intent)
                 finish()
             }
 

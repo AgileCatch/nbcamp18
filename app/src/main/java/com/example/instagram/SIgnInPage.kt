@@ -12,10 +12,18 @@ class SIgnInPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_page)
 
+
+
+
         val signUpBtn = findViewById<Button>(R.id.signUpBtn)
         signUpBtn.setOnClickListener{
             val intent = Intent(this, SIgnUpPage::class.java)
             startActivity(intent)
+
+
+
+
+
         }
 
         val logInBtn = findViewById<Button>(R.id.logInBtn)
@@ -40,5 +48,12 @@ class SIgnInPage : AppCompatActivity() {
                 Toast.makeText(this, "이메일/비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show()
             }
         }
+        val emailData = intent.getStringExtra("email")
+        val editTextEmail = findViewById<EditText>(R.id.emailID)
+        editTextEmail.setText(emailData)
+
+        val passWordData = intent.getStringExtra("password")
+        val editTextPassWord = findViewById<EditText>(R.id.pw)
+        editTextPassWord.setText(passWordData)
     }
 }
