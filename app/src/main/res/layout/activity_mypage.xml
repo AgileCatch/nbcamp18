@@ -44,7 +44,7 @@
                     android:layout_gravity="right"
                     android:layout_marginEnd="16dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="뒤로가기버튼"
+                    android:contentDescription="수정하기버튼"
                     android:src="@drawable/baseline_create_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/imageButton"
                         style="@style/circle_profile_img"
                         android:layout_width="92dp"
