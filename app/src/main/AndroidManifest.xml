@@ -19,9 +19,6 @@
             android:name=".EditPhotoPage"
             android:exported="false" />
         <activity
-            android:name=".AddPhotoPage"
-            android:exported="false" />
-        <activity
             android:name=".SIgnUpPage"
             android:exported="false" />
         <activity
