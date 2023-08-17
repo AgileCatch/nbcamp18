@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/lv_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/circle_profile_img"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lv_nicname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="우리는코믹자매예요"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/lv_profile"
+            app:layout_constraintStart_toEndOf="@+id/lv_profile"
+            app:layout_constraintTop_toTopOf="@+id/lv_profile"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/lv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="조은이"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/lv_profile"
+            app:layout_constraintStart_toEndOf="@+id/lv_nicname"
+            app:layout_constraintTop_toTopOf="@+id/lv_profile"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="2023.08.14"
+
+            android:textColor="@color/blue"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/lv_profile"
+            app:layout_constraintStart_toEndOf="@+id/lv_profile"
+            app:layout_constraintTop_toTopOf="@+id/lv_profile"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/lv_comment"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="잘지내냐 지나가다가 발자국 남긴다..."
+            app:layout_constraintStart_toStartOf="@+id/datetime"
+            app:layout_constraintTop_toBottomOf="@+id/datetime" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lv_comment" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
