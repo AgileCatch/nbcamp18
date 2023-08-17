@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Data.Userinfo
 import com.example.instagram.Data.UserinfoSingleton
 import com.example.instagram.DetailPage
+import com.example.instagram.MyPage
 import com.example.instagram.R
 
 
@@ -39,31 +40,42 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
         holder.feedText.text = feedItem.description
 
         holder.itemCard.setOnClickListener {
-            val intent = Intent(it.context, DetailPage::class.java)
+            if(position == 0){
+                val intent = Intent(it.context, MyPage::class.java)
+                updateData(position)
+                intent.putExtra("position", position)
+                it.context.startActivity(intent)
+            }else{
+                val intent = Intent(it.context, DetailPage::class.java)
+                updateData(position)
+                intent.putExtra("position", position)
+                it.context.startActivity(intent)
+            }
 
-            val userinfoList = UserinfoSingleton.getUserinfoList()
-            val userinfo = userinfoList[position]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname
-            )
-
-            intent.putExtra("position", position)
-            it.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
         return feedList.size
+    }
+
+    fun updateData(position: Int){
+        val userinfoList = UserinfoSingleton.getUserinfoList()
+        val userinfo = userinfoList[position]
+
+        UserinfoSingleton.updateUserinfo(
+            userinfo,
+            userinfo.name,
+            userinfo.id,
+            userinfo.profileImg,
+            userinfo.today + 1,
+            userinfo.description,
+            userinfo.ilchon,
+            userinfo.favorites,
+            userinfo.miniroom,
+            userinfo.roomname
+        )
     }
 
 

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SIgnInPage"
-    >
+    tools:context=".SIgnInPage">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,9 +24,12 @@
         android:layout_height="48dp"
         android:layout_marginTop="68dp"
         android:background="@drawable/border"
-        android:hint="   이메일 아이디"
 
+
+        android:hint="이메일 아이디"
         android:inputType="textEmailAddress"
+
+        android:padding="10dp"
 
         android:selectAllOnFocus="false"
         android:singleLine="false"
@@ -74,8 +76,9 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/border"
 
-        android:hint="   비밀번호"
+        android:hint="비밀번호"
         android:inputType="textPassword"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
