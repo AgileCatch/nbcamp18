@@ -31,8 +31,48 @@ class MainPage : AppCompatActivity() {
         //profileList.add(Userinfo(전달받은 데이터))
 
 
-        moveDetailPage(ibProfile1, 0)
-        moveDetailPage(ibProfile3, 1)
+        ibProfile1.setOnClickListener {
+            val intent = Intent(this, MyPage::class.java)
+            val userinfo = userinfoList[0]
+
+            UserinfoSingleton.updateUserinfo(
+                userinfo,
+                userinfo.name,
+                userinfo.id,
+                userinfo.profileImg,
+                userinfo.today + 1,
+                userinfo.description,
+                userinfo.ilchon,
+                userinfo.favorites,
+                userinfo.miniroom,
+                userinfo.roomname
+            )
+
+            intent.putExtra("num", 0)
+            startActivity(intent)
+        }
+
+
+        ibProfile3.setOnClickListener {
+            val intent = Intent(this, DetailPage::class.java)
+            val userinfo = userinfoList[1]
+
+            UserinfoSingleton.updateUserinfo(
+                userinfo,
+                userinfo.name,
+                userinfo.id,
+                userinfo.profileImg,
+                userinfo.today + 1,
+                userinfo.description,
+                userinfo.ilchon,
+                userinfo.favorites,
+                userinfo.miniroom,
+                userinfo.roomname
+            )
+
+            intent.putExtra("position", 1)
+            startActivity(intent)
+        }
 
 
         val feedList = arrayListOf(
@@ -51,7 +91,7 @@ class MainPage : AppCompatActivity() {
     fun moveDetailPage(Imb:ImageButton, i:Int){
 
         Imb.setOnClickListener {
-            val intent = Intent(this, MyPage::class.java)
+            val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[i]
 
             UserinfoSingleton.updateUserinfo(
