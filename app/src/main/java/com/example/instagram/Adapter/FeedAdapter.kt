@@ -10,8 +10,10 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Data.Userinfo
+import com.example.instagram.Data.UserinfoSingleton
 import com.example.instagram.DetailPage
 import com.example.instagram.R
+
 
 class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
 
@@ -38,20 +40,24 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
 
         holder.itemCard.setOnClickListener {
             val intent = Intent(it.context, DetailPage::class.java)
-            val userId = feedItem.id
-            val userinfo = userList.find { it.id == userId }
 
-            userinfo?.let {
-                it.today = it.today + 1
-                intent.putExtra("name", it.name)
-                intent.putExtra("profileImg", it.profileImg)
-                intent.putExtra("today", it.today)
-                intent.putExtra("description", it.description)
-                intent.putExtra("ilchon", it.ilchon)
-                intent.putExtra("favorites", it.favorites)
-                intent.putExtra("miniroomImg", it.miniroom)
-            }
+            val userinfoList = UserinfoSingleton.getUserinfoList()
+            val userinfo = userinfoList[position]
 
+            UserinfoSingleton.updateUserinfo(
+                userinfo,
+                userinfo.name,
+                userinfo.id,
+                userinfo.profileImg,
+                userinfo.today + 1,
+                userinfo.description,
+                userinfo.ilchon,
+                userinfo.favorites,
+                userinfo.miniroom,
+                userinfo.roomname
+            )
+
+            intent.putExtra("position", position)
             it.context.startActivity(intent)
         }
     }

@@ -38,7 +38,7 @@
 
 
                 <ImageButton
-                    android:id="@+id/create"
+                    android:id="@+id/imb_create"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="right"

@@ -2,7 +2,6 @@ package com.example.instagram
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Data.Comment
+import com.example.instagram.Data.UserinfoSingleton
+
 
 //댓글 초기화
 val commentList = arrayListOf(
@@ -38,6 +39,7 @@ class DetailPage : AppCompatActivity() {
         val dIlchon = findViewById<TextView>(R.id.tv_1chon_num)
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dMiniroom = findViewById<ImageView>(R.id.iv_miniroom)
+        val dRoomname = findViewById<TextView>(R.id.roomname)
 
         val commentButton = findViewById<Button>(R.id.button)
         val Etilchon = findViewById<EditText>(R.id.et_ilchon)
@@ -65,23 +67,20 @@ class DetailPage : AppCompatActivity() {
 
 
         //Intent로 데이터 가져오기
-        val name = intent.getStringExtra("name")
-        val profileImg = intent.getIntExtra("profileImg", 0)
-        var today = intent.getIntExtra("today", 0)
-        var description = intent.getStringExtra("description")
-        var ilchon = intent.getIntExtra("ilchon", 0)
-        var favorites = intent.getIntExtra("favorites", 0)
-        var miniroom = intent.getIntExtra("miniroomImg", 0)
+        val num = intent.getIntExtra("position", 0)
+        val userinfoList = UserinfoSingleton.getUserinfoList()
+        val userinfo = userinfoList[num]
 
-        toolbarName.text = "${name}의 미니홈피"
-        dName.text = name
-        dProfileImg.setImageResource(profileImg)
-        dProfileImgSquare.setImageResource(profileImg)
-        dtoday.text = today.toString()
-        dintroduce.text = description
-        dIlchon.text = ilchon.toString()
-        dFavorites.text = favorites.toString()
-        dMiniroom.setImageResource(miniroom)
+        toolbarName.text = "${userinfo.name}의 미니홈피"
+        dName.text = userinfo.name
+        dProfileImg.setImageResource(userinfo.profileImg)
+        dProfileImgSquare.setImageResource(userinfo.profileImg)
+        dtoday.text = userinfo.today.toString()
+        dintroduce.text = userinfo.description
+        dIlchon.text = userinfo.ilchon.toString()
+        dFavorites.text = userinfo.favorites.toString()
+        dMiniroom.setImageResource(userinfo.miniroom)
+        dRoomname.text = userinfo.roomname
 
 
         //일촌평 추가하기

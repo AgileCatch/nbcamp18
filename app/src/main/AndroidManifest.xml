@@ -28,6 +28,14 @@
             android:name=".DetailPage"
             android:exported="false" />
         <activity
+            android:name=".EditMyPage"
+            android:exported="false" />
+        <activity
+            android:name=".MyPage"
+            android:exported="false" />
+
+
+        <activity
             android:name=".MainPage"
             android:exported="true">
             <intent-filter>
