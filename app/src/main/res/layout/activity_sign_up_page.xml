@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/newNickName" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUpBtn2"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
