@@ -67,7 +67,7 @@ class DetailPage : AppCompatActivity() {
 
 
         //Intent로 데이터 가져오기
-        val num = intent.getIntExtra("position", 0)
+        var num = intent.getIntExtra("position", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[num]
 
