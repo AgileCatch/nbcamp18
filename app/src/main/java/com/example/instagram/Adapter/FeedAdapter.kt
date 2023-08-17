@@ -1,18 +1,24 @@
 package com.example.instagram.Adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Data.Feed
+import com.example.instagram.Data.Userinfo
+import com.example.instagram.Data.UserinfoSingleton
+import com.example.instagram.DetailPage
 import com.example.instagram.R
 
-class FeedAdapter(val feedList: ArrayList<Feed>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
+
+class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
 
     class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val itemCard = itemView.findViewById<CardView>(R.id.item_card)
         val profileImg = itemView.findViewById<ImageButton>(R.id.ib_profile)
         val profileName = itemView.findViewById<TextView>(R.id.tv_name)
         val feedImg = itemView.findViewById<ImageView>(R.id.iv_feed)
@@ -25,10 +31,35 @@ class FeedAdapter(val feedList: ArrayList<Feed>) : RecyclerView.Adapter<FeedAdap
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.profileImg.setImageResource(feedList.get(position).profileImg)
-        holder.profileName.text = feedList.get(position).profileName
-        holder.feedImg.setImageResource(feedList.get(position).feedImg)
-        holder.feedText.text = feedList.get(position).feedText
+        val feedItem = feedList[position]
+
+        holder.profileImg.setImageResource(feedItem.profileImg)
+        holder.profileName.text = feedItem.id
+        holder.feedImg.setImageResource(feedItem.miniroom)
+        holder.feedText.text = feedItem.description
+
+        holder.itemCard.setOnClickListener {
+            val intent = Intent(it.context, DetailPage::class.java)
+
+            val userinfoList = UserinfoSingleton.getUserinfoList()
+            val userinfo = userinfoList[position]
+
+            UserinfoSingleton.updateUserinfo(
+                userinfo,
+                userinfo.name,
+                userinfo.id,
+                userinfo.profileImg,
+                userinfo.today + 1,
+                userinfo.description,
+                userinfo.ilchon,
+                userinfo.favorites,
+                userinfo.miniroom,
+                userinfo.roomname
+            )
+
+            intent.putExtra("position", position)
+            it.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
