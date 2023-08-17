@@ -30,17 +30,14 @@ class CommentAdapter(var commentList:ArrayList<Comment>) : RecyclerView.Adapter<
         holder.name.text=commentList.get(position).name
         holder.nicname.text = commentList.get(position).nicname
         holder.profileimg.setImageResource(commentList.get(position).profileimg)
-        holder.datetime.text = commentList.get(position).datetime
         holder.content.text = commentList.get(position).content
+
+        val commentDate = commentList[position].datetime // 댓글의 날짜 데이터 가져오기
+        holder.datetime.text = commentDate // 날짜를 표시
     }
 
     override fun getItemCount(): Int {
         return commentList.size
-    }
-
-    fun updateData(newList: ArrayList<Comment>) {
-        commentList = newList
-        notifyDataSetChanged()
     }
 
 }
