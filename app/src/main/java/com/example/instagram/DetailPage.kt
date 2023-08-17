@@ -1,5 +1,4 @@
 package com.example.instagram
-
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -13,7 +12,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Data.Comment
 
+//댓글 초기화
+val commentList = arrayListOf(
+    Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
+    Comment("추지연", "어느별에서왔니도대체", R.drawable.girl2, "2023.08.15", "■■■■■□90% 충전중"),
+    Comment("이승현", "우린 먼가 달라", R.drawable.man1, "2023.08.14", "거기 하늘라이프죠?"),
+    Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),)
+
 class DetailPage : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage)
@@ -28,20 +35,15 @@ class DetailPage : AppCompatActivity() {
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dMiniroom = findViewById<ImageView>(R.id.iv_miniroom)
 
+        val commentButton = findViewById<Button>(R.id.button)
+        val Etilchon = findViewById<EditText>(R.id.et_ilchon)
+        val Etcontent  = findViewById<EditText>(R.id.et_content)
+
         //뒤로가기 버튼작동
         val backButton = findViewById<ImageButton>(R.id.imb_back)
         backButton.setOnClickListener {
             finish()
         }
-
-        //댓글초기화
-        val commentList = arrayListOf(
-            Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
-            Comment("추지연", "어느별에서왔니도대체", R.drawable.girl2, "2023.08.15", "■■■■■□90% 충전중"),
-            Comment("이승현", "우린 먼가 달라", R.drawable.man1, "2023.08.14", "거기 하늘라이프죠?"),
-            Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),
-
-            )
 
         //댓글 리사이클 뷰 연결
         val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
