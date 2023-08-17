@@ -18,67 +18,73 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/emailID"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-        android:layout_width="210dp"
+        android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/border"
-        android:ems="10"
-        android:hint="   이메일 아이디"
+
+
+        android:hint="이메일 아이디"
         android:inputType="textEmailAddress"
+
+        android:padding="10dp"
+
         android:selectAllOnFocus="false"
         android:singleLine="false"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
-        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-        android:layout_width="210dp"
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#e8e4e4"
+        android:text="회원가입"
+        android:textColor="#9c9c9c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logInBtn" />
+
+    <Button
+        android:id="@+id/logInBtn"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+
+
+        android:backgroundTint="#e8e4e4"
+        android:text="로그인"
+        android:textColor="#9c9c9c"
+        app:iconPadding="-30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pw" />
+
+    <EditText
+        android:id="@+id/pw"
+        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/border"
-        android:ems="10"
-        android:hint="   비밀번호"
-        android:inputType="textEmailAddress"
+
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#f3701e"
-        android:drawableLeft="@drawable/girl_size"
-        android:text="회원가입"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#f3701e"
-        android:drawableLeft="@drawable/man1_size"
-        android:text="로그인"
-
-        android:textColorHighlight="#FF9800"
-        android:textColorLink="#FF9800"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintTop_toBottomOf="@+id/emailID" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
