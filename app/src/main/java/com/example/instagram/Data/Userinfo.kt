@@ -9,7 +9,6 @@ class Userinfo {
     var ilchon:Int = 0
     var favorites:Int = 0
     var miniroom:Int = 0
-    var comment:ArrayList<Comment> = arrayListOf()
 
     constructor(_name:String, _id:String, _profileImg:Int, _today:Int, _description:String, _ilchon:Int, _favorites:Int, _miniroom:Int){
         name = _name
