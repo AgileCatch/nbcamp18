@@ -1,6 +1,7 @@
 package com.example.instagram.Adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +35,20 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val feedItem = feedList[position]
 
-        holder.profileImg.setImageResource(feedItem.profileImg)
         holder.profileName.text = feedItem.id
-        holder.feedImg.setImageResource(feedItem.miniroom)
         holder.feedText.text = feedItem.description
+
+        if(feedItem.changedProfileImg == Uri.EMPTY){
+            holder.profileImg.setImageResource(feedItem.profileImg)
+        }else{
+            holder.profileImg.setImageURI(feedItem.changedProfileImg)
+        }
+
+        if(feedItem.changedMiniroomImg == Uri.EMPTY){
+            holder.feedImg.setImageResource(feedItem.miniroom)
+        }else{
+            holder.feedImg.setImageURI(feedItem.changedMiniroomImg)
+        }
 
         holder.itemCard.setOnClickListener {
             if(position == 0){
@@ -74,7 +85,9 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
             userinfo.ilchon,
             userinfo.favorites,
             userinfo.miniroom,
-            userinfo.roomname
+            userinfo.roomname,
+            userinfo.changedProfileImg,
+            userinfo.changedMiniroomImg
         )
     }
 

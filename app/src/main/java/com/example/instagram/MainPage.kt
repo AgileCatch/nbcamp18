@@ -1,6 +1,7 @@
 package com.example.instagram
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -29,8 +30,9 @@ class MainPage : AppCompatActivity() {
         val ibProfile4 = findViewById<ImageButton>(R.id.ib_profile4)
 
 
-        //회원가입에서 데이터 전달 받아서 profileList에 추가한다
-        //profileList.add(Userinfo(전달받은 데이터))
+        val userinfoList = UserinfoSingleton.getUserinfoList()
+        imageButtonChange("김영현", ibProfile1)
+        imageButtonChange("추지연", ibProfile3)
 
 
         ibProfile1.setOnClickListener {
@@ -47,7 +49,9 @@ class MainPage : AppCompatActivity() {
                 userinfo.ilchon,
                 userinfo.favorites,
                 userinfo.miniroom,
-                userinfo.roomname
+                userinfo.roomname,
+                userinfo.changedProfileImg,
+                userinfo.changedMiniroomImg
             )
 
             intent.putExtra("num", 0)
@@ -69,17 +73,19 @@ class MainPage : AppCompatActivity() {
                 userinfo.ilchon,
                 userinfo.favorites,
                 userinfo.miniroom,
-                userinfo.roomname
+                userinfo.roomname,
+                userinfo.changedProfileImg,
+                userinfo.changedMiniroomImg
             )
 
             intent.putExtra("position", 1)
             startActivity(intent)
         }
 
-
         val feedList = arrayListOf(
-            userinfoList[0],
-            userinfoList[1]
+            //수정 필요
+            userinfoList.find{it.name == "김영현"} as Userinfo,
+            userinfoList.find{it.name == "추지연"} as Userinfo,
         )
 
         val rv_feed = findViewById<RecyclerView>(R.id.rv_feed)
@@ -88,6 +94,16 @@ class MainPage : AppCompatActivity() {
 
         rv_feed.adapter = FeedAdapter(feedList, userinfoList)
 
+    }
+
+    fun imageButtonChange(username:String, ImgButton:ImageButton){
+        var userinfo = userinfoList.find { it.name == username } as Userinfo
+
+        if(userinfo.changedProfileImg == Uri.EMPTY){
+            ImgButton.setImageResource(userinfo.profileImg)
+        }else{
+            ImgButton.setImageURI(userinfo.changedProfileImg)
+        }
     }
 
     fun moveDetailPage(Imb:ImageButton, i:Int){
@@ -106,7 +122,9 @@ class MainPage : AppCompatActivity() {
                 userinfo.ilchon,
                 userinfo.favorites,
                 userinfo.miniroom,
-                userinfo.roomname
+                userinfo.roomname,
+                userinfo.changedProfileImg,
+                userinfo.changedMiniroomImg
             )
 
             intent.putExtra("num", i)

@@ -1,6 +1,7 @@
 package com.example.instagram
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -30,13 +31,24 @@ class MyPage() :  AppCompatActivity(){
         val userinfo = userinfoList[num]
 
         dName.text = userinfo.name
-        dProfileImgSquare.setImageResource(userinfo.profileImg)
+
         dtoday.text = userinfo.today.toString()
         dintroduce.text = userinfo.description
         dIlchon.text = userinfo.ilchon.toString()
         dFavorites.text = userinfo.favorites.toString()
-        dMiniroom.setImageResource(userinfo.miniroom)
         droomname.text = userinfo.roomname
+
+        if(userinfo.changedProfileImg == Uri.EMPTY){
+            dProfileImgSquare.setImageResource(userinfo.profileImg)
+        }else{
+            dProfileImgSquare.setImageURI(userinfo.changedProfileImg)
+        }
+
+        if(userinfo.changedMiniroomImg == Uri.EMPTY){
+            dMiniroom.setImageResource(userinfo.miniroom)
+        }else{
+            dMiniroom.setImageURI(userinfo.changedMiniroomImg)
+        }
 
         createbutton.setOnClickListener {
             val intent = Intent(this, EditMyPage::class.java)
