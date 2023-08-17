@@ -7,9 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Data.Comment
+import com.example.instagram.Data.Userinfo
 import com.example.instagram.R
 
-class CommentAdapter(val commentList:ArrayList<Comment>) : RecyclerView.Adapter<CommentAdapter.CustomViewHolder>(){
+class CommentAdapter(var commentList:ArrayList<Comment>) : RecyclerView.Adapter<CommentAdapter.CustomViewHolder>(){
 
     class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.lv_name)
@@ -37,5 +38,9 @@ class CommentAdapter(val commentList:ArrayList<Comment>) : RecyclerView.Adapter<
         return commentList.size
     }
 
+    fun updateData(newList: ArrayList<Comment>) {
+        commentList = newList
+        notifyDataSetChanged()
+    }
 
 }
