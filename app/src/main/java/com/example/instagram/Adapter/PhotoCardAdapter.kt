@@ -3,6 +3,7 @@ package com.example.instagram.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -33,10 +34,21 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
 
         val commentDate = photocardList[position].datetime // 사진의 날짜 데이터 가져오기
         holder.content_datetime.text = commentDate // 날짜를 표시
+
+        holder.itemView.findViewById<Button>(R.id.bt_delete).setOnClickListener {
+            val clickedItem = photocardList[position]
+            DeleteCard(clickedItem, position) //삭제 함수 호출
+        }
     }
 
     override fun getItemCount(): Int {
         return photocardList.size
+    }
+
+    //삭제 작업 담당 함수
+    private fun DeleteCard(item: PhotoCard, position: Int) {
+        photocardList.remove(item)  // 아이템 삭제
+        notifyItemRemoved(position) // 삭제 후 화면 갱신하기
     }
 
 }
