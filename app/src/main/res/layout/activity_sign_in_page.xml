@@ -25,8 +25,8 @@
         android:layout_height="48dp"
         android:layout_marginTop="68dp"
         android:background="@drawable/border"
-
-        android:hint="   이메일 아이디"
+        android:padding="10dp"
+        android:hint="이메일 아이디"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="false"
         android:singleLine="false"
@@ -73,7 +73,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/border"
 
-        android:hint="   비밀번호"
+        android:padding="10dp"
+        android:hint="비밀번호"
         android:inputType="textPassword"
         android:selectAllOnFocus="false"
         android:singleLine="false"

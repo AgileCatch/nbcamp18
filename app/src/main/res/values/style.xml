@@ -4,6 +4,7 @@
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:background">@drawable/profile_circle</item>
+        <item name="android:displayOptions">useLogo|showHome</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
 
