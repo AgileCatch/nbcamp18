@@ -28,7 +28,7 @@ class DetailPage : AppCompatActivity() {
         val toolbarName = findViewById<TextView>(R.id.rightText)
         val dName = findViewById<TextView>(R.id.tv_name)
         val dProfileImg = findViewById<ImageView>(R.id.rightImageView)
-        val dProfileImgSquare = findViewById<ImageButton>(R.id.imb_profile)
+        val dProfileImgSquare = findViewById<ImageView>(R.id.imb_profile)
         val dtoday = findViewById<TextView>(R.id.tv_today_num)
         val dintroduce = findViewById<TextView>(R.id.tv_description)
         val dIlchon = findViewById<TextView>(R.id.tv_1chon_num)
