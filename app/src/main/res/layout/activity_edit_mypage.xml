@@ -330,6 +330,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <ImageButton
                         android:id="@+id/imb_miniroom"
                         android:layout_width="370dp"
@@ -346,13 +347,13 @@
                         app:layout_constraintTop_toBottomOf="@+id/miniroom" />
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/iv_camaera"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_miniroom"
-                        app:layout_constraintEnd_toEndOf="@+id/iv_miniroom"
-                        app:layout_constraintStart_toStartOf="@+id/iv_miniroom"
-                        app:layout_constraintTop_toTopOf="@+id/iv_miniroom"
+                        app:layout_constraintBottom_toBottomOf="@+id/imb_miniroom"
+                        app:layout_constraintEnd_toEndOf="@+id/imb_miniroom"
+                        app:layout_constraintStart_toStartOf="@+id/imb_miniroom"
+                        app:layout_constraintTop_toTopOf="@+id/imb_miniroom"
                         app:srcCompat="@drawable/baseline_add_a_photo_24" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

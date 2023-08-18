@@ -58,13 +58,6 @@ class DetailPage : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //댓글 리사이클 뷰 연결
-        val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
-        rv_comment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rv_comment.setHasFixedSize(true)
-
-        rv_comment.adapter = CommentAdapter(commentList)
-
 
         //Intent로 데이터 가져오기
         var num = intent.getIntExtra("position", 0)
@@ -81,6 +74,13 @@ class DetailPage : AppCompatActivity() {
         dFavorites.text = userinfo.favorites.toString()
         dMiniroom.setImageResource(userinfo.miniroom)
         dRoomname.text = userinfo.roomname
+
+        //댓글 리사이클 뷰 연결
+        val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
+        rv_comment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_comment.setHasFixedSize(true)
+
+        rv_comment.adapter = CommentAdapter(userinfo.commentList)
 
 
         //일촌평 추가하기
@@ -107,8 +107,8 @@ class DetailPage : AppCompatActivity() {
                             getCurrentDate(),
                             contentText
                         )
-                    commentList.add(newComment)
-                    rv_comment.adapter?.notifyItemInserted(commentList.size - 1)
+                    UserinfoSingleton.addcommentList(userinfo, newComment)
+                    rv_comment.adapter?.notifyItemInserted(userinfo.commentList.size - 1)
 
                     showToast("일촌평이 등록 되었습니다.")
 

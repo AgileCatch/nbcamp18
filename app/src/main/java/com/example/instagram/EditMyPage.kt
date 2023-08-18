@@ -11,6 +11,10 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.instagram.Adapter.CommentAdapter
+import com.example.instagram.Adapter.EditCommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
 private var profileUri : Uri = Uri.EMPTY
@@ -92,6 +96,12 @@ class EditMyPage :  AppCompatActivity(){
         }else{
             miniroomSelectButton.setImageURI(userinfo.changedMiniroomImg)
         }
+
+        val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
+        rv_comment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_comment.setHasFixedSize(true)
+
+        rv_comment.adapter = EditCommentAdapter(userinfo.commentList)
 
         savebutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
