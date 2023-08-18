@@ -39,20 +39,7 @@ class MainPage : AppCompatActivity() {
             val intent = Intent(this, MyPage::class.java)
             val userinfo = userinfoList[0]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname,
-                userinfo.changedProfileImg,
-                userinfo.changedMiniroomImg
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("num", 0)
             startActivity(intent)
@@ -63,20 +50,7 @@ class MainPage : AppCompatActivity() {
             val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[1]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname,
-                userinfo.changedProfileImg,
-                userinfo.changedMiniroomImg
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("position", 1)
             startActivity(intent)
@@ -112,20 +86,7 @@ class MainPage : AppCompatActivity() {
             val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[i]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname,
-                userinfo.changedProfileImg,
-                userinfo.changedMiniroomImg
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("num", i)
             startActivity(intent)

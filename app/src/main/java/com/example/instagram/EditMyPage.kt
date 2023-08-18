@@ -96,17 +96,8 @@ class EditMyPage :  AppCompatActivity(){
         savebutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
 
-            UserinfoSingleton.updateUserinfo(
+            UserinfoSingleton.changeUserImg(
                 userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today,
-                dDescription.text.toString(),
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                dRoomname.text.toString(),
                 profileUri,
                 miniroomUri
             )

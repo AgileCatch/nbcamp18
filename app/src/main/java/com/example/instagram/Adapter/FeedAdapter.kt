@@ -75,20 +75,7 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[position]
 
-        UserinfoSingleton.updateUserinfo(
-            userinfo,
-            userinfo.name,
-            userinfo.id,
-            userinfo.profileImg,
-            userinfo.today + 1,
-            userinfo.description,
-            userinfo.ilchon,
-            userinfo.favorites,
-            userinfo.miniroom,
-            userinfo.roomname,
-            userinfo.changedProfileImg,
-            userinfo.changedMiniroomImg
-        )
+        UserinfoSingleton.todayIncrease(userinfo)
     }
 
 
