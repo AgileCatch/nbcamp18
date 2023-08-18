@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.CommentAdapter
-import com.example.instagram.Adapter.ProfileAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
 class MyPage() :  AppCompatActivity(){
@@ -70,6 +69,7 @@ class MyPage() :  AppCompatActivity(){
             val intent = Intent(this, EditMyPage::class.java)
             intent.putExtra("position", position)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         backbutton.setOnClickListener {
@@ -77,11 +77,13 @@ class MyPage() :  AppCompatActivity(){
             intent.putExtra("position", position)
             startActivity(intent)
             finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         photobutton.setOnClickListener {
             val intent = Intent(this, PhotoAlbumPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

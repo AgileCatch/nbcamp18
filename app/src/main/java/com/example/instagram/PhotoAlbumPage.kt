@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Adapter.PhotoCardAdapter
+import com.example.instagram.Adapter.PhotoAlbumAdapter
 
 class PhotoAlbumPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +16,7 @@ class PhotoAlbumPage : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.imb_back)
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         //사진첩 리사이클 뷰 연결
@@ -23,6 +24,6 @@ class PhotoAlbumPage : AppCompatActivity() {
         rv_album.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_album.setHasFixedSize(true)
 
-        rv_album.adapter = PhotoCardAdapter(photocardList)
+        rv_album.adapter = PhotoAlbumAdapter(photocardList)
     }
 }

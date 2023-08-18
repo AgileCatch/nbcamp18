@@ -14,7 +14,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Adapter.EditCommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
@@ -109,14 +108,16 @@ class EditMyPage :  AppCompatActivity(){
         savebutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
 
-            UserinfoSingleton.changeUserImg(
+            UserinfoSingleton.changeUserEdit(
                 userinfo,
+                dDescription.text.toString(),
                 profileUri,
                 miniroomUri
             )
 
             intent.putExtra("position", position)
             startActivity(intent)
+
         }
 
         backbutton.setOnClickListener {
@@ -124,11 +125,13 @@ class EditMyPage :  AppCompatActivity(){
             intent.putExtra("position", position)
             startActivity(intent)
             finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         photobutton.setOnClickListener {
             val intent = Intent(this, EditPhotoPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
     }

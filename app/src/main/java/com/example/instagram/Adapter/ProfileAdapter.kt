@@ -5,13 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Data.Comment
-import com.example.instagram.Data.Profile
 import com.example.instagram.Data.Userinfo
-import com.example.instagram.Data.UserinfoSingleton
 import com.example.instagram.DetailPage
 import com.example.instagram.MyPage
 import com.example.instagram.R

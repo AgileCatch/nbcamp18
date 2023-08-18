@@ -1,10 +1,7 @@
 package com.example.instagram
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,8 +27,7 @@ class MainPage : AppCompatActivity() {
 
         //사용자이름 상단에 표시
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val loginUserId = intent.getStringExtra("id").toString()
-        val userInfo = userinfoList.find{it.id == loginUserId}
+        val userInfo = userinfoList[userinfoList.size-1]
         val welcome=findViewById<TextView>(R.id.welcome)
         val welcomeMessage = if (userInfo != null) {
             "환영합니다, ${userInfo.name} 님"
@@ -50,30 +46,7 @@ class MainPage : AppCompatActivity() {
         rvProfile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvProfile.adapter = profileAdapter
 
-
-//        //개인페이지 초기화값
-//        val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
-//        val ibProfile2 = findViewById<ImageButton>(R.id.ib_profile2)
-//        val ibProfile3 = findViewById<ImageButton>(R.id.ib_profile3)
-//        val ibProfile4 = findViewById<ImageButton>(R.id.ib_profile4)
-//        val userinfoList = UserinfoSingleton.getUserinfoList()
-//
-//        imageButtonChange("김영현", ibProfile1)
-//
-//        ibProfile1.setOnClickListener {
-//            val intent = Intent(this, MyPage::class.java)
-//            val userinfo = userinfoList[1]
-//
-//            UserinfoSingleton.todayIncrease(userinfo)
-//
-//            intent.putExtra("num", 0)
-//            startActivity(intent)
-//        }
-//
-//        moveDetailPage(ibProfile3,1)
-
         //피드보여주기
-
         val jiyeonUser = userinfoList.find { it.name == "추지연" } as Userinfo
         val jiyeonCommetList = arrayListOf<Comment>(
             Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
@@ -82,39 +55,19 @@ class MainPage : AppCompatActivity() {
         UserinfoSingleton.setcommetList(jiyeonUser, jiyeonCommetList)
 
 
-
-
-
-//        val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
-//        val ibProfile2 = findViewById<ImageButton>(R.id.ib_profile2)
-//        val ibProfile3 = findViewById<ImageButton>(R.id.ib_profile3)
-//        val ibProfile4 = findViewById<ImageButton>(R.id.ib_profile4)
-//
-
-
-//        //김영현님 이미지 버튼 누르면 MyPage로 이동
-//        ibProfile1.setOnClickListener {
-//            val intent = Intent(this, MyPage::class.java)
-//            val userinfo = userinfoList.find { it.name == "김영현" } as Userinfo
-//
-//            UserinfoSingleton.todayIncrease(userinfo)
-//
-//            intent.putExtra("num", 0)
-//            startActivity(intent)
-//        }
-//
-//
-//        //이미지 버튼 누르면 DetailPage로 이동하는 함수
-//        moveDetailPage(ibProfile3,2)
-
-
         //피드 추가 : 넣는 순서대로 뜨기 때문에 순서를 잘 확인해야함
-
         val feedList = arrayListOf(
-            //수정 필요
             userinfoList.find{it.name == "김영현"} as Userinfo,
+            userinfoList.find{it.name == "이승현"} as Userinfo,
             userinfoList.find{it.name == "추지연"} as Userinfo,
+            userinfoList.find{it.name == "안주환"} as Userinfo,
         )
+
+        if (UserinfoSingleton.getUserinfoList().size > 4){
+            val userinfoList = UserinfoSingleton.getUserinfoList()
+            val userinfo = userinfoList[userinfoList.size-1]
+            feedList.add(userinfo)
+        }
 
         val rv_feed = findViewById<RecyclerView>(R.id.rv_feed)
         rv_feed.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -124,30 +77,4 @@ class MainPage : AppCompatActivity() {
 
     }
 
-    //EditPage에서 이미지가 변경되면 mainpage 이미지 변경하는 함수
-    fun imageButtonChange(username:String, ImgButton:ImageButton){
-        var userinfo = userinfoList.find { it.name == username } as Userinfo
-
-        if(userinfo.changedProfileImg == Uri.EMPTY){
-            ImgButton.setImageResource(userinfo.profileImg)
-        }else{
-            ImgButton.setImageURI(userinfo.changedProfileImg)
-        }
-    }
-
-    //이미지 버튼 누르면 DetailPage로 이동하는 함수
-    fun moveDetailPage(Imb:ImageButton, i:Int){
-
-        Imb.setOnClickListener {
-            val intent = Intent(this, DetailPage::class.java)
-            val userinfo = userinfoList[i]
-
-            UserinfoSingleton.todayIncrease(userinfo)
-
-            intent.putExtra("position", i)
-            startActivity(intent)
-
-        }
-
-    }
 }
