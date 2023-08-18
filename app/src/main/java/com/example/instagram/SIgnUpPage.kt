@@ -51,6 +51,7 @@ class SIgnUpPage : AppCompatActivity() {
                 signInPageIntent.putExtra("nickname", nickname)
                 signInPageIntent.putExtra("name", name)
                 startActivity(signInPageIntent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             }

@@ -66,11 +66,13 @@ class MainPage : AppCompatActivity() {
 
             intent.putExtra("num", 0)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
 
         //이미지 버튼 누르면 DetailPage로 이동하는 함수
         moveDetailPage(ibProfile3,2)
+
 
 
         //피드 추가 : 넣는 순서대로 뜨기 때문에 순서를 잘 확인해야함
@@ -110,6 +112,7 @@ class MainPage : AppCompatActivity() {
 
             intent.putExtra("position", i)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         }
 

@@ -24,7 +24,7 @@
             android:name=".SIgnUpPage"
             android:exported="false" />
         <activity
-            android:name=".MainPage"
+            android:name=".SIgnInPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
 
 
         <activity
-            android:name=".SIgnInPage"
+            android:name=".MainPage"
             android:exported="false">
         </activity>
     </application>

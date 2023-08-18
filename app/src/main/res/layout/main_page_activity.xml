@@ -25,7 +25,7 @@
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/logo_world" />
+            android:src="@drawable/cyworld1" />
 
         <ImageView
             android:id="@+id/iv_circle"
