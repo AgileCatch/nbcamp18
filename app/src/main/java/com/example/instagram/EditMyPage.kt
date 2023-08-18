@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -42,9 +43,11 @@ class EditMyPage :  AppCompatActivity(){
 
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
-        val num = intent.getIntExtra("num", 0)
+        val position = intent.getIntExtra("position", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val userinfo = userinfoList[num]
+        val userinfo = userinfoList[position]
+        Log.d("userinfo", userinfo.toString())
+        Log.d("position", position.toString())
 
         profileactivityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()) { result ->
@@ -112,14 +115,15 @@ class EditMyPage :  AppCompatActivity(){
                 miniroomUri
             )
 
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
         }
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
+            finish()
         }
 
         photobutton.setOnClickListener {

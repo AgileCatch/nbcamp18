@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.CommentAdapter
+import com.example.instagram.Adapter.ProfileAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
 class MyPage() :  AppCompatActivity(){
@@ -32,12 +33,10 @@ class MyPage() :  AppCompatActivity(){
         val droomname = findViewById<TextView>(R.id.roomname)
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
-        val num = intent.getIntExtra("num", 0)
-        Log.d("num", num.toString())
-
+        val position = intent.getIntExtra("position", 0)
+        Log.d("position", position.toString())
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val userinfo = userinfoList[num]
-        Log.d("num", userinfo.toString())
+        val userinfo = userinfoList[position]
 
         dName.text = userinfo.name
 
@@ -69,13 +68,15 @@ class MyPage() :  AppCompatActivity(){
 
         createbutton.setOnClickListener {
             val intent = Intent(this, EditMyPage::class.java)
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
         }
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)
+            intent.putExtra("position", position)
             startActivity(intent)
+            finish()
         }
 
         photobutton.setOnClickListener {

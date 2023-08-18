@@ -17,6 +17,7 @@ import com.example.instagram.MyPage
 import com.example.instagram.R
 
 
+
 class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
 
     class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
