@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Adapter.PhotoCardAdapter
+import com.example.instagram.Adapter.PhotoAlbumAdapter
 
 class PhotoAlbumPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +23,6 @@ class PhotoAlbumPage : AppCompatActivity() {
         rv_album.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_album.setHasFixedSize(true)
 
-        rv_album.adapter = PhotoCardAdapter(photocardList)
+        rv_album.adapter = PhotoAlbumAdapter(photocardList)
     }
 }
