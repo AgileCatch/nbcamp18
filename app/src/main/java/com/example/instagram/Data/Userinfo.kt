@@ -2,7 +2,6 @@ package com.example.instagram.Data
 
 import android.net.Uri
 
-
 class Userinfo {
     var name:String = ""
     var id:String = ""

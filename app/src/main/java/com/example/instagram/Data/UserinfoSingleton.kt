@@ -1,7 +1,6 @@
 package com.example.instagram.Data
 
 import android.net.Uri
-import com.example.instagram.Data.Userinfo
 
 object UserinfoSingleton {
     private val userList: MutableList<Userinfo> = mutableListOf()
@@ -15,7 +14,7 @@ object UserinfoSingleton {
         userinfo.changedMiniroomImg = newChangedMiniroomImg
     }
 
-    fun todayIncrease(userinfo: Userinfo){
+    fun todayIncrease(userinfo: Userinfo) {
         userinfo.today = userinfo.today + 1
     }
 

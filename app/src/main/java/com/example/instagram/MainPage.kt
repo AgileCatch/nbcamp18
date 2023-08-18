@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,10 +19,22 @@ class MainPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_page_activity)
+        //사용자이름 상단에 표시
+        val userInfo = UserinfoSingleton.getUserinfoList().firstOrNull()
+        val welcome=findViewById<TextView>(R.id.welcome)
+        val welcomeMessage = if (userInfo != null) {
+            "환영합니다, ${userInfo.name} 님"
+        } else {
+            "환영합니다, 손님"
+        }
+        welcome.text = welcomeMessage
 
 
+        //개인페이지 초기화
         UserinfoSingleton.addUserinfo(Userinfo("김영현", "yeonghyeon", R.drawable.girl1,0, "안녕하세요\n김영현 미니홈피입니다.", 100, 900, R.drawable.miniroom, "영현님의 미니룸"))
         UserinfoSingleton.addUserinfo(Userinfo("추지연", "jiyeon", R.drawable.girl2,0, "안녕하세요\n추지연 미니홈피입니다.", 10, 900, R.drawable.miniroom2, "지연님의 미니룸"))
+        UserinfoSingleton.addUserinfo(Userinfo("이승현", "sh4340", R.drawable.man1,0, "안녕하세요\n이승현 미니홈피입니다.", 10, 900, R.drawable.miniroom3, "지연님의 미니룸"))
+        UserinfoSingleton.addUserinfo(Userinfo("안주환", "ajh1346", R.drawable.man2,0, "안녕하세요\n안주환 미니홈피입니다.", 10, 900, R.drawable.miniroom5, "지연님의 미니룸"))
 
 
         val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
@@ -31,9 +44,6 @@ class MainPage : AppCompatActivity() {
 
 
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        imageButtonChange("김영현", ibProfile1)
-        imageButtonChange("추지연", ibProfile3)
-
 
         ibProfile1.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
@@ -46,7 +56,7 @@ class MainPage : AppCompatActivity() {
         }
 
 
-        ibProfile3.setOnClickListener {
+        ibProfile2.setOnClickListener {
             val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[1]
 

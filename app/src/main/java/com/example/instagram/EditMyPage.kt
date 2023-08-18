@@ -4,12 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +35,8 @@ class EditMyPage :  AppCompatActivity(){
         val dIlchon = findViewById<TextView>(R.id.tv_1chon_num)
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dRoomname = findViewById<EditText>(R.id.et_roomname)
+
+        val photobutton = findViewById<Button>(R.id.bt_photo)
 
         val num = intent.getIntExtra("num", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
@@ -109,6 +109,11 @@ class EditMyPage :  AppCompatActivity(){
         backbutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
             intent.putExtra("num", num)
+            startActivity(intent)
+        }
+
+        photobutton.setOnClickListener {
+            val intent = Intent(this, EditPhotoPage::class.java)
             startActivity(intent)
         }
 

@@ -33,10 +33,11 @@
             android:layout_height="24dp"
             android:layout_gravity="right"
             android:layout_marginRight="20dp"
-            android:src="@drawable/girl1"
+            android:src="@drawable/cong1"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
+            android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

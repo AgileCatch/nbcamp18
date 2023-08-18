@@ -1,8 +1,8 @@
 package com.example.instagram.Data
 
 data class PhotoCard (
-    val title:String,
+    var title:String,
     val photo:Int,
     val datetime:String,
-    val content:String
+    var content:String
 )
