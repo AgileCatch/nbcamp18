@@ -1,10 +1,12 @@
 package com.example.instagram.Data
 
 import android.net.Uri
+import com.example.instagram.R
 
 class Userinfo {
     var name:String = ""
     var id:String = ""
+    var pw:String = ""
     var profileImg:Int = 0
     var today:Int = 0
     var description:String = ""
@@ -14,6 +16,9 @@ class Userinfo {
     var roomname:String = ""
     var changedProfileImg : Uri = Uri.EMPTY
     var changedMiniroomImg : Uri = Uri.EMPTY
+    var commentList: ArrayList<Comment> = arrayListOf(
+        Comment("관리자", "관심일촌", R.drawable.girl1, "2023.08.16", "싸이월드 가입을 축하드립니다!"),
+    )
 
 
     constructor(_name:String, _id:String, _profileImg:Int, _today:Int, _description:String, _ilchon:Int, _favorites:Int, _miniroom:Int, _roomname:String){
@@ -26,15 +31,6 @@ class Userinfo {
         favorites = _favorites
         miniroom = _miniroom
         roomname = _roomname
-    }
-
-    constructor(feedId:String, feedProfile:Int, feedImg:Int, feedText:String){
-
-        id = feedId
-        profileImg = feedProfile
-        miniroom = feedImg
-        description = feedText
-
     }
 
 }

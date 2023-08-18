@@ -8,6 +8,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
 class MyPage() :  AppCompatActivity(){
@@ -51,6 +54,14 @@ class MyPage() :  AppCompatActivity(){
         }else{
             dMiniroom.setImageURI(userinfo.changedMiniroomImg)
         }
+
+        val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
+        rv_comment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_comment.setHasFixedSize(true)
+
+        rv_comment.adapter = CommentAdapter(userinfo.commentList)
+
+
 
         createbutton.setOnClickListener {
             val intent = Intent(this, EditMyPage::class.java)
