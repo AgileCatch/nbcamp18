@@ -17,7 +17,7 @@ class Userinfo {
     var changedProfileImg : Uri = Uri.EMPTY
     var changedMiniroomImg : Uri = Uri.EMPTY
     var commentList: ArrayList<Comment> = arrayListOf(
-        Comment("관리자", "관심일촌", R.drawable.girl1, "2023.08.16", "싸이월드 가입을 축하드립니다!"),
+        Comment("관리자", "관심일촌", R.drawable.girl1, "2023.08.16", "싸이월드 가입을 축하드립니다!")
     )
 
 

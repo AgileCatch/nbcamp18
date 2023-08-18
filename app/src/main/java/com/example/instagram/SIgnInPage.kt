@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.instagram.Data.UserinfoSingleton
 
 class SIgnInPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,6 @@ class SIgnInPage : AppCompatActivity() {
 
             val savedEmail = intent.getStringExtra("email")
             val savedPassWord = intent.getStringExtra("password")
-
 
             if (email == savedEmail && password == savedPassWord) {
                 Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()

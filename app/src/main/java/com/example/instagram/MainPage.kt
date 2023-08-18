@@ -13,6 +13,11 @@ import com.example.instagram.Data.Comment
 import com.example.instagram.Data.Userinfo
 import com.example.instagram.Data.UserinfoSingleton
 
+//        Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
+//        Comment("추지연", "어느별에서왔니도대체", R.drawable.girl2, "2023.08.15", "■■■■■□90% 충전중"),
+//        Comment("이승현", "우린 먼가 달라", R.drawable.man1, "2023.08.14", "거기 하늘라이프죠?"),
+//        Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),
+
 class MainPage : AppCompatActivity() {
 
     val userinfoList = UserinfoSingleton.getUserinfoList()
@@ -46,7 +51,6 @@ class MainPage : AppCompatActivity() {
             Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"))
         UserinfoSingleton.setcommetList(jiyeonUser, jiyeonCommetList)
 
-
         val ibProfile1 = findViewById<ImageButton>(R.id.ib_profile1)
         val ibProfile2 = findViewById<ImageButton>(R.id.ib_profile2)
         val ibProfile3 = findViewById<ImageButton>(R.id.ib_profile3)
@@ -64,13 +68,13 @@ class MainPage : AppCompatActivity() {
 
             UserinfoSingleton.todayIncrease(userinfo)
 
-            intent.putExtra("num", 0)
+            intent.putExtra("num", userinfoList.indexOf(userinfo))
             startActivity(intent)
         }
 
 
         //이미지 버튼 누르면 DetailPage로 이동하는 함수
-        moveDetailPage(ibProfile3,2)
+        moveDetailPage(ibProfile3,3)
 
 
         //피드 추가 : 넣는 순서대로 뜨기 때문에 순서를 잘 확인해야함

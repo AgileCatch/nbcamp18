@@ -3,6 +3,7 @@ package com.example.instagram
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -32,8 +33,11 @@ class MyPage() :  AppCompatActivity(){
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
         val num = intent.getIntExtra("num", 0)
+        Log.d("num", num.toString())
+
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[num]
+        Log.d("num", userinfo.toString())
 
         dName.text = userinfo.name
 
