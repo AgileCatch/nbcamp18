@@ -37,6 +37,7 @@ class SIgnInPage : AppCompatActivity() {
             if (email == savedEmail && password == savedPassWord) {
                 Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
                 val mainPageIntent = Intent(this, MainPage::class.java)
+                mainPageIntent.putExtra("id", email)
                 startActivity(mainPageIntent)
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()

@@ -3,6 +3,7 @@ package com.example.instagram
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -31,9 +32,10 @@ class MyPage() :  AppCompatActivity(){
         val droomname = findViewById<TextView>(R.id.roomname)
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
-        val num = intent.getIntExtra("num", 0)
+        val position = intent.getIntExtra("position", 0)
+        Log.d("position", position.toString())
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val userinfo = userinfoList[num]
+        val userinfo = userinfoList[position]
 
         dName.text = userinfo.name
 
@@ -65,14 +67,16 @@ class MyPage() :  AppCompatActivity(){
 
         createbutton.setOnClickListener {
             val intent = Intent(this, EditMyPage::class.java)
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)
+            intent.putExtra("position", position)
             startActivity(intent)
+            finish()
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 

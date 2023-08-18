@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -13,7 +14,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Adapter.EditCommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
@@ -42,9 +42,11 @@ class EditMyPage :  AppCompatActivity(){
 
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
-        val num = intent.getIntExtra("num", 0)
+        val position = intent.getIntExtra("position", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val userinfo = userinfoList[num]
+        val userinfo = userinfoList[position]
+        Log.d("userinfo", userinfo.toString())
+        Log.d("position", position.toString())
 
         profileactivityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()) { result ->
@@ -106,21 +108,23 @@ class EditMyPage :  AppCompatActivity(){
         savebutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
 
-            UserinfoSingleton.changeUserImg(
+            UserinfoSingleton.changeUserEdit(
                 userinfo,
+                dDescription.text.toString(),
                 profileUri,
                 miniroomUri
             )
 
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
 
         }
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
-            intent.putExtra("num", num)
+            intent.putExtra("position", position)
             startActivity(intent)
+            finish()
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
