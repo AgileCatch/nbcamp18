@@ -67,16 +67,19 @@ class MyPage() :  AppCompatActivity(){
             val intent = Intent(this, EditMyPage::class.java)
             intent.putExtra("num", num)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         backbutton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         photobutton.setOnClickListener {
             val intent = Intent(this, PhotoAlbumPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

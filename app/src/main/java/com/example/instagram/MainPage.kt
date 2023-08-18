@@ -65,6 +65,7 @@ class MainPage : AppCompatActivity() {
 //
 //            intent.putExtra("num", 0)
 //            startActivity(intent)
+
 //        }
 //
 //        moveDetailPage(ibProfile3,1)
@@ -143,6 +144,7 @@ class MainPage : AppCompatActivity() {
 
             intent.putExtra("position", i)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         }
 

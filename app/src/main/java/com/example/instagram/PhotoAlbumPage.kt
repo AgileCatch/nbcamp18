@@ -16,6 +16,7 @@ class PhotoAlbumPage : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.imb_back)
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         //사진첩 리사이클 뷰 연결

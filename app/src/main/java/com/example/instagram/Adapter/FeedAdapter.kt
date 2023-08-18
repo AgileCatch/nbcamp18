@@ -1,5 +1,6 @@
 package com.example.instagram.Adapter
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -56,14 +57,12 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
                 updateData(position)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
-            }else{
+                (it.context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)            }else{
                 val intent = Intent(it.context, DetailPage::class.java)
                 updateData(position)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
-            }
-
-
+                (it.context as Activity).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)            }
         }
     }
 

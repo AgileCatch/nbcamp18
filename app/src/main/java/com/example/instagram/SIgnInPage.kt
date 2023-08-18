@@ -6,10 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.instagram.Adapter.ProfileAdapter
-import com.example.instagram.Data.Userinfo
 
 class SIgnInPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +17,7 @@ class SIgnInPage : AppCompatActivity() {
         signUpBtn.setOnClickListener {
             val intent = Intent(this, SIgnUpPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         }
 
@@ -41,10 +38,9 @@ class SIgnInPage : AppCompatActivity() {
                 Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
                 val mainPageIntent = Intent(this, MainPage::class.java)
                 startActivity(mainPageIntent)
-
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
             } else {
-
                 Toast.makeText(this, "이메일/비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show()
             }
         }

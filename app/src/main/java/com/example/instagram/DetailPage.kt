@@ -49,6 +49,7 @@ class DetailPage : AppCompatActivity() {
         val backButton = findViewById<ImageButton>(R.id.imb_back)
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         //사진첩으로 화면전환
@@ -56,6 +57,7 @@ class DetailPage : AppCompatActivity() {
         bt_photo.setOnClickListener {
             val intent = Intent(this, PhotoAlbumPage::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
 
