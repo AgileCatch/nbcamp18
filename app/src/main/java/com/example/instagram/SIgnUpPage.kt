@@ -45,8 +45,6 @@ class SIgnUpPage : AppCompatActivity() {
             UserinfoSingleton.addUserinfo(newUserinfo)
 
             //다음화면으로 이동하는 코드
-
-
                 val signInPageIntent = Intent(this, SIgnInPage::class.java)
                 signInPageIntent.putExtra("email", email)
                 signInPageIntent.putExtra("password", password)

@@ -18,6 +18,14 @@ object UserinfoSingleton {
         userinfo.today = userinfo.today + 1
     }
 
+    fun addcommentList(userinfo: Userinfo, newComment:Comment){
+        userinfo.commentList.add(newComment)
+    }
+
+    fun setcommetList(userinfo: Userinfo, newCommetList:ArrayList<Comment>){
+        userinfo.commentList = newCommetList
+    }
+
     fun getUserinfoList(): List<Userinfo> {
         return userList
     }
