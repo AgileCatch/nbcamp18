@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Data.Userinfo
+import com.example.instagram.Data.UserinfoSingleton
 import com.example.instagram.DetailPage
 import com.example.instagram.MyPage
 import com.example.instagram.R
@@ -35,12 +36,13 @@ class ProfileAdapter(val profilelist: ArrayList<Userinfo>) :
         }
 
         holder.profileimg.setOnClickListener {
-            if(position == profilelist.size -1){
+            if(position == 0){
                 val intent = Intent(it.context, MyPage::class.java)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
             }else{
                 val intent = Intent(it.context, DetailPage::class.java)
+                updateData(position)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
             }
@@ -49,6 +51,13 @@ class ProfileAdapter(val profilelist: ArrayList<Userinfo>) :
 
     override fun getItemCount(): Int {
         return profilelist.size
+    }
+
+    fun updateData(position: Int) {
+        val userinfoList = UserinfoSingleton.getUserinfoList()
+        val userinfo = userinfoList[position]
+
+        UserinfoSingleton.todayIncrease(userinfo)
     }
 
 }
