@@ -1,10 +1,10 @@
 package com.example.instagram
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,24 +43,13 @@ class MainPage : AppCompatActivity() {
         val ibProfile4 = findViewById<ImageButton>(R.id.ib_profile4)
 
 
-        //회원가입에서 데이터 전달 받아서 profileList에 추가한다
-        //profileList.add(Userinfo(전달받은 데이터))
+        val userinfoList = UserinfoSingleton.getUserinfoList()
+
         ibProfile1.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
             val userinfo = userinfoList[0]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("num", 0)
             startActivity(intent)
@@ -71,30 +60,16 @@ class MainPage : AppCompatActivity() {
             val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[1]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("position", 1)
             startActivity(intent)
         }
 
-
         val feedList = arrayListOf(
-            userinfoList[0],
-            userinfoList[1],
-            userinfoList[2],
-            userinfoList[3],
-
+            //수정 필요
+            userinfoList.find{it.name == "김영현"} as Userinfo,
+            userinfoList.find{it.name == "추지연"} as Userinfo,
         )
 
         val rv_feed = findViewById<RecyclerView>(R.id.rv_feed)
@@ -105,24 +80,23 @@ class MainPage : AppCompatActivity() {
 
     }
 
+    fun imageButtonChange(username:String, ImgButton:ImageButton){
+        var userinfo = userinfoList.find { it.name == username } as Userinfo
+
+        if(userinfo.changedProfileImg == Uri.EMPTY){
+            ImgButton.setImageResource(userinfo.profileImg)
+        }else{
+            ImgButton.setImageURI(userinfo.changedProfileImg)
+        }
+    }
+
     fun moveDetailPage(Imb:ImageButton, i:Int){
 
         Imb.setOnClickListener {
             val intent = Intent(this, DetailPage::class.java)
             val userinfo = userinfoList[i]
 
-            UserinfoSingleton.updateUserinfo(
-                userinfo,
-                userinfo.name,
-                userinfo.id,
-                userinfo.profileImg,
-                userinfo.today + 1,
-                userinfo.description,
-                userinfo.ilchon,
-                userinfo.favorites,
-                userinfo.miniroom,
-                userinfo.roomname
-            )
+            UserinfoSingleton.todayIncrease(userinfo)
 
             intent.putExtra("num", i)
             startActivity(intent)

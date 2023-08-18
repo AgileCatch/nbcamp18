@@ -1,7 +1,6 @@
 package com.example.instagram.Data
 
-import android.widget.EditText
-
+import android.net.Uri
 
 class Userinfo {
     var name:String = ""
@@ -13,6 +12,8 @@ class Userinfo {
     var favorites:Int = 0
     var miniroom:Int = 0
     var roomname:String = ""
+    var changedProfileImg : Uri = Uri.EMPTY
+    var changedMiniroomImg : Uri = Uri.EMPTY
 
 
     constructor(_name:String, _id:String, _profileImg:Int, _today:Int, _description:String, _ilchon:Int, _favorites:Int, _miniroom:Int, _roomname:String){

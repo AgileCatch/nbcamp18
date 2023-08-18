@@ -1,6 +1,6 @@
 package com.example.instagram.Data
 
-import com.example.instagram.Data.Userinfo
+import android.net.Uri
 
 object UserinfoSingleton {
     private val userList: MutableList<Userinfo> = mutableListOf()
@@ -9,17 +9,13 @@ object UserinfoSingleton {
         userList.add(userinfo)
     }
 
+    fun changeUserImg(userinfo: Userinfo, newChangedProfileImg:Uri, newChangedMiniroomImg: Uri){
+        userinfo.changedProfileImg = newChangedProfileImg
+        userinfo.changedMiniroomImg = newChangedMiniroomImg
+    }
 
-    fun updateUserinfo(userinfo: Userinfo, newName: String, newId: String, newProfileImg: Int, newToday: Int, newDescription: String, newIlchon: Int, newFavorites: Int, newMiniroom: Int, newRoomname:String) {
-        userinfo.name = newName
-        userinfo.id = newId
-        userinfo.profileImg = newProfileImg
-        userinfo.today = newToday
-        userinfo.description = newDescription
-        userinfo.ilchon = newIlchon
-        userinfo.favorites = newFavorites
-        userinfo.miniroom = newMiniroom
-        userinfo.roomname = newRoomname
+    fun todayIncrease(userinfo: Userinfo) {
+        userinfo.today = userinfo.today + 1
     }
 
     fun getUserinfoList(): List<Userinfo> {
