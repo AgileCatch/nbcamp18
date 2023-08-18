@@ -45,6 +45,8 @@ class MainPage : AppCompatActivity() {
 
         val userinfoList = UserinfoSingleton.getUserinfoList()
 
+        imageButtonChange("김영현", ibProfile1)
+
         ibProfile1.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
             val userinfo = userinfoList[0]
@@ -55,16 +57,7 @@ class MainPage : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        ibProfile2.setOnClickListener {
-            val intent = Intent(this, DetailPage::class.java)
-            val userinfo = userinfoList[1]
-
-            UserinfoSingleton.todayIncrease(userinfo)
-
-            intent.putExtra("position", 1)
-            startActivity(intent)
-        }
+        moveDetailPage(ibProfile3,1)
 
         val feedList = arrayListOf(
             //수정 필요
