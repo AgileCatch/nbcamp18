@@ -13,7 +13,7 @@ object UserinfoSingleton {
     var userProfile: Userinfo? = null//프로필 리사이클러뷰연결
 
     fun addUserinfo(userinfo: Userinfo) {
-        userList.add(userinfo)
+        userList.add(0, userinfo)
     }
 
     fun changeUserEdit(userinfo: Userinfo, newDescription:String, newChangedProfileImg:Uri, newChangedMiniroomImg: Uri){
@@ -27,7 +27,7 @@ object UserinfoSingleton {
     }
 
     fun addcommentList(userinfo: Userinfo, newComment:Comment){
-        userinfo.commentList.add(0, newComment)
+        userinfo.commentList.add(newComment)
     }
 
     fun setcommetList(userinfo: Userinfo, newCommetList:ArrayList<Comment>){

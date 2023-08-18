@@ -27,7 +27,7 @@ class MainPage : AppCompatActivity() {
 
         //사용자이름 상단에 표시
         val userinfoList = UserinfoSingleton.getUserinfoList()
-        val userInfo = userinfoList[userinfoList.size-1]
+        val userInfo = userinfoList[0]
         val welcome=findViewById<TextView>(R.id.welcome)
         val welcomeMessage = if (userInfo != null) {
             "환영합니다, ${userInfo.name} 님"
@@ -62,9 +62,9 @@ class MainPage : AppCompatActivity() {
         if (UserinfoSingleton.getUserinfoList().size > 4){
             val userinfoList = UserinfoSingleton.getUserinfoList()
 
-            for(i in 4 until userinfoList.size){
+            for(i in 0 until userinfoList.size-4){
                 val userinfo = userinfoList[i]
-                profileList.add(userinfo)
+                profileList.add(0, userinfo)
             }
         }
 

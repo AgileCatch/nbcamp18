@@ -2,6 +2,7 @@ package com.example.instagram
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -32,10 +33,7 @@ class DetailPage : AppCompatActivity() {
         val dFavorites = findViewById<TextView>(R.id.tv_favorites_num)
         val dMiniroom = findViewById<ImageView>(R.id.iv_miniroom)
         val dRoomname = findViewById<TextView>(R.id.roomname)
-
-        val commentButton = findViewById<Button>(R.id.button)
-        val Etilchon = findViewById<EditText>(R.id.et_ilchon)
-        val Etcontent = findViewById<EditText>(R.id.et_content)
+        val userName = findViewById<TextView>(R.id.user_name)
 
         //뒤로가기 버튼작동
         val backButton = findViewById<ImageButton>(R.id.imb_back)
@@ -68,6 +66,7 @@ class DetailPage : AppCompatActivity() {
         dFavorites.text = userinfo.favorites.toString()
         dMiniroom.setImageResource(userinfo.miniroom)
         dRoomname.text = userinfo.roomname
+        userName.text = userinfoList[0].name
 
         //댓글 리사이클 뷰 연결
         val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
@@ -75,7 +74,6 @@ class DetailPage : AppCompatActivity() {
         rv_comment.setHasFixedSize(true)
 
         rv_comment.adapter = CommentAdapter(userinfo.commentList)
-
 
         //일촌평 추가하기
         val button = findViewById<Button>(R.id.button)
@@ -95,7 +93,7 @@ class DetailPage : AppCompatActivity() {
                 if (ilchonText.length <= maxIlchonLength && contentText.length <= maxContentLength) {
                     val newComment =
                         Comment(
-                            "작성자 이름",
+                            userinfoList[0].name,
                             ilchonText,
                             R.drawable.man1,
                             getCurrentDate(),
@@ -124,6 +122,8 @@ class DetailPage : AppCompatActivity() {
                 showToast("비어있는 칸이 있습니다.")
             }
         }
+
+
     }
 
     // 현재 날짜를 가져오는 함수
