@@ -1,6 +1,7 @@
 package com.example.instagram.Adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.example.instagram.DetailPage
 import com.example.instagram.MyPage
 import com.example.instagram.R
 
-class ProfileAdapter(var profilelist: List<Userinfo>) :
+class ProfileAdapter(val profilelist: ArrayList<Userinfo>) :
     RecyclerView.Adapter<ProfileAdapter.CustomViewHolder>() {
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,7 +27,13 @@ class ProfileAdapter(var profilelist: List<Userinfo>) :
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val userInfo = profilelist[position]
-        holder.profileimg.setImageResource(userInfo.profileImg)
+
+        if (userInfo.changedProfileImg == Uri.EMPTY) {
+            holder.profileimg.setImageResource(userInfo.profileImg)
+        } else {
+            holder.profileimg.setImageURI(userInfo.changedProfileImg)
+        }
+
         holder.profileimg.setOnClickListener {
             if(position == profilelist.size -1){
                 val intent = Intent(it.context, MyPage::class.java)
@@ -45,20 +52,3 @@ class ProfileAdapter(var profilelist: List<Userinfo>) :
     }
 
 }
-
-//val userInfo = profilelist[position]
-//if (userInfo != null) {
-//    holder.profileimg.setImageResource(userInfo.profileImg)
-//} else {
-//    holder.profileimg.setOnClickListener {
-//        if (position == 0) {
-//            val intent = Intent(it.context, MyPage::class.java)
-//            intent.putExtra("position", position)
-//            it.context.startActivity(intent)
-//        } else {
-//            val intent = Intent(it.context, DetailPage::class.java)
-//            intent.putExtra("position", position)
-//            it.context.startActivity(intent)
-//        }
-//    }
-//}
