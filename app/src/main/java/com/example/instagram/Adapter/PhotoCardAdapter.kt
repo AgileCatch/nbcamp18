@@ -1,7 +1,10 @@
 package com.example.instagram.Adapter
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Color
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Data.Comment
 import com.example.instagram.Data.PhotoCard
@@ -46,7 +50,7 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
         // 삭제 버튼 리스너
         holder.itemView.findViewById<Button>(R.id.bt_delete).setOnClickListener {
             val clickedItem = photocardList[position]
-            DeleteCard(clickedItem, position) //삭제 함수 호출
+            showDeleteConfirmation(holder.itemView.context, position) //삭제 함수 호출
         }
     }
 
@@ -86,6 +90,33 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
         alertDialog.show()
     }
 
+    //삭제 다이얼로그
+    @SuppressLint("SuspiciousIndentation")
+    private fun showDeleteConfirmation(context: Context, position: Int) {
+        val dialogBuilder = AlertDialog.Builder(context)
+            dialogBuilder.setTitle("안내")
+        val messageTextView = TextView(context)
+        messageTextView.text = "글을 삭제하시겠습니까?"
+        messageTextView.gravity = Gravity.CENTER // 중앙 정렬을 설정합니다.
+
+        messageTextView.setPadding(0, 100, 0, 50)
+        messageTextView.setBackgroundColor(Color.WHITE)
+
+        dialogBuilder.setView(messageTextView)
+        dialogBuilder.setIcon(R.drawable.baseline_notifications_none_24)
+
+        dialogBuilder.setPositiveButton("예") { _, _ ->
+            DeleteCard(position)
+        }
+
+        dialogBuilder.setNegativeButton("아니오") { _, _ ->
+            Toast.makeText(context, "취소되었습니다", Toast.LENGTH_SHORT).show()
+        }
+
+        val alertDialog = dialogBuilder.create()
+        alertDialog.show()
+    }
+
     private fun performEditAction(position: Int, updatedTitle: String, updatedContent: String) {
         val item = photocardList[position]
         item.title = updatedTitle
@@ -99,9 +130,9 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
     }
 
     //삭제 작업 담당 함수
-    private fun DeleteCard(item: PhotoCard, position: Int) {
-        photocardList.remove(item)  // 아이템 삭제
-        notifyItemRemoved(position) // 삭제 후 화면 갱신하기
+    private fun DeleteCard(position: Int) {
+        photocardList.removeAt(position)  // 아이템 삭제
+        notifyDataSetChanged() // 삭제 후 화면 갱신하기
     }
 
 }
