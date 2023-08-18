@@ -4,6 +4,7 @@ import android.net.Uri
 
 object UserinfoSingleton {
     private val userList: MutableList<Userinfo> = mutableListOf()
+    var userProfile: Userinfo? = null//프로필 리사이클러뷰연결
 
     fun addUserinfo(userinfo: Userinfo) {
         userList.add(userinfo)
