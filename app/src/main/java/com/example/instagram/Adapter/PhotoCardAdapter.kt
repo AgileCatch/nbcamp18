@@ -46,7 +46,7 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
         // 삭제 버튼 리스너
         holder.itemView.findViewById<Button>(R.id.bt_delete).setOnClickListener {
             val clickedItem = photocardList[position]
-            DeleteCard(clickedItem, position) //삭제 함수 호출
+            showDeleteConfirmation(holder.itemView.context, position) //삭제 함수 호출
         }
     }
 
@@ -86,6 +86,19 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
         alertDialog.show()
     }
 
+    //삭제 다이얼로그
+    private fun showDeleteConfirmation(context: Context, position: Int) {
+        val dialogBuilder = AlertDialog.Builder(context)
+            .setTitle("안내")
+            .setMessage("정말로 삭제하시겠습니까??")
+            .setPositiveButton("삭제") { _, _ ->
+                DeleteCard(position)
+            }
+            .setNegativeButton("취소", null)
+
+        dialogBuilder.show()
+    }
+
     private fun performEditAction(position: Int, updatedTitle: String, updatedContent: String) {
         val item = photocardList[position]
         item.title = updatedTitle
@@ -99,9 +112,9 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
     }
 
     //삭제 작업 담당 함수
-    private fun DeleteCard(item: PhotoCard, position: Int) {
-        photocardList.remove(item)  // 아이템 삭제
-        notifyItemRemoved(position) // 삭제 후 화면 갱신하기
+    private fun DeleteCard(position: Int) {
+        photocardList.removeAt(position)  // 아이템 삭제
+        notifyDataSetChanged() // 삭제 후 화면 갱신하기
     }
 
 }
