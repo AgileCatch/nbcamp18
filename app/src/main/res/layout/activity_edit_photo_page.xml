@@ -78,8 +78,10 @@
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="644dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -92,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardCornerRadius="10dp" >
+                app:cardCornerRadius="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -104,8 +106,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="15dp"
-                        android:hint="제목을 입력하세요."
                         android:background="@drawable/profile_circle"
+                        android:hint="제목을 입력하세요."
                         android:textSize="15dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -148,9 +150,9 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="40dp"
-                        android:padding="10dp"
-                        android:hint="내용을 입력하세요."
                         android:background="@drawable/profile_circle"
+                        android:hint="내용을 입력하세요."
+                        android:padding="10dp"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +197,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2"/>
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
         </LinearLayout>
     </ScrollView>
