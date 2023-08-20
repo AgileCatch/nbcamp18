@@ -11,8 +11,6 @@ import com.example.instagram.Adapter.PhotoAlbumAdapter
 import com.example.instagram.Data.PhotoCard
 import com.example.instagram.Data.UserinfoSingleton
 
-private val photocardList = arrayListOf<PhotoCard>()
-
 class PhotoAlbumPage : AppCompatActivity() {
 
 

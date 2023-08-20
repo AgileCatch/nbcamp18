@@ -97,12 +97,12 @@
                     <ImageButton
                         android:id="@+id/imb_profile"
                         style="@style/circle_profile_img"
-                        android:background="@drawable/profile_circle"
-                        android:backgroundTint="@color/gray"
                         android:layout_width="92dp"
                         android:layout_height="92dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
+                        android:background="@drawable/profile_circle"
+                        android:backgroundTint="@color/gray"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -323,10 +323,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="15dp"
-                        android:textSize="13sp"
-                        android:gravity="right"
                         android:background="@drawable/profile_circle"
+                        android:gravity="right"
                         android:hint="미니룸 컨셉(10자이내)"
+                        android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -339,8 +339,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="10dp"
-                        android:scaleType="fitXY"
                         android:background="@color/gray"
+                        android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -415,7 +415,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view2"
                         app:layout_constraintVertical_bias="0.601" />
-
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

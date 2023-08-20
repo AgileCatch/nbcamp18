@@ -40,7 +40,8 @@ class EditPhotoPage : AppCompatActivity() {
         val rv_photocard = findViewById<RecyclerView>(R.id.rv_photo)
 
         photoActivityResult = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) { result ->
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 val data: Intent? = result.data
                 selectedPhotoUri = data?.data as Uri

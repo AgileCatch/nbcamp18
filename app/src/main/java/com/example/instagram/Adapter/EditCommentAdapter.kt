@@ -1,7 +1,6 @@
 package com.example.instagram.Adapter
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater

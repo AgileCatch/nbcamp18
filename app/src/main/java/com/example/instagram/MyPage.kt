@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.CommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
-class MyPage() :  AppCompatActivity(){
+class MyPage() : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
 
+        // 뷰 요소 초기화
         val backbutton = findViewById<ImageButton>(R.id.imb_back)
         val createbutton = findViewById<ImageButton>(R.id.imb_create)
         val dName = findViewById<TextView>(R.id.tv_name)
@@ -32,39 +33,42 @@ class MyPage() :  AppCompatActivity(){
         val droomname = findViewById<TextView>(R.id.roomname)
         val photobutton = findViewById<Button>(R.id.bt_photo)
 
+        // 이전 화면에서 전달받은 포지션 정보로 사용자 정보 가져오기
         val position = intent.getIntExtra("position", 0)
         Log.d("position", position.toString())
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[position]
 
+        // 사용자 정보 화면에 표시
         dName.text = userinfo.name
-
         dtoday.text = userinfo.today.toString()
         dintroduce.text = userinfo.description
         dIlchon.text = userinfo.ilchon.toString()
         dFavorites.text = userinfo.favorites.toString()
         droomname.text = userinfo.roomname
 
-        if(userinfo.changedProfileImg == Uri.EMPTY){
+
+        // 프로필 이미지 및 미니룸 이미지 표시
+        if (userinfo.changedProfileImg == Uri.EMPTY) {
             dProfileImgSquare.setImageResource(userinfo.profileImg)
-        }else{
+        } else {
             dProfileImgSquare.setImageURI(userinfo.changedProfileImg)
         }
 
-        if(userinfo.changedMiniroomImg == Uri.EMPTY){
+        if (userinfo.changedMiniroomImg == Uri.EMPTY) {
             dMiniroom.setImageResource(userinfo.miniroom)
-        }else{
+        } else {
             dMiniroom.setImageURI(userinfo.changedMiniroomImg)
         }
 
+        // 댓글 리사이클러뷰 설정
         val rv_comment = findViewById<RecyclerView>(R.id.rv_comment)
         rv_comment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_comment.setHasFixedSize(true)
-
         rv_comment.adapter = CommentAdapter(userinfo.commentList)
 
 
-
+        // 정보 수정 버튼 클릭 시 EditMyPage 화면으로 이동
         createbutton.setOnClickListener {
             val intent = Intent(this, EditMyPage::class.java)
             intent.putExtra("position", position)
@@ -72,6 +76,7 @@ class MyPage() :  AppCompatActivity(){
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
+        // 뒤로 가기 버튼 클릭 시 MainPage 화면으로 이동
         backbutton.setOnClickListener {
             val intent = Intent(this, MainPage::class.java)
             intent.putExtra("position", position)
@@ -80,6 +85,7 @@ class MyPage() :  AppCompatActivity(){
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
+        // 사진 버튼 클릭 시 PhotoAlbumPage 화면으로 이동
         photobutton.setOnClickListener {
             val intent = Intent(this, PhotoAlbumPage::class.java)
             startActivity(intent)

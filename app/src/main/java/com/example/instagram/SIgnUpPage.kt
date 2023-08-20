@@ -3,7 +3,6 @@ package com.example.instagram
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -41,7 +40,17 @@ class SIgnUpPage : AppCompatActivity() {
 
 
                 // 새로운 사용자 정보 생성
-                val newUserinfo = Userinfo(name, nickname, R.drawable.newprofile, 0, "", 0, 0, R.drawable.empty1, "")
+                val newUserinfo = Userinfo(
+                    name,
+                    nickname,
+                    R.drawable.newprofile,
+                    0,
+                    "",
+                    0,
+                    0,
+                    R.drawable.empty1,
+                    ""
+                )
                 // 생성한 사용자 정보를 UserinfoSingleton에 추가
                 UserinfoSingleton.addUserinfo(newUserinfo)
 

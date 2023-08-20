@@ -17,10 +17,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.EditCommentAdapter
 import com.example.instagram.Data.UserinfoSingleton
 
-private var profileUri : Uri = Uri.EMPTY
-private var miniroomUri : Uri = Uri.EMPTY
+private var profileUri: Uri = Uri.EMPTY // 프로필 이미지의 Uri를 저장하는 변수
+private var miniroomUri: Uri = Uri.EMPTY // 미니룸 이미지의 Uri를 저장하는 변수
 
-class EditMyPage :  AppCompatActivity(){
+class EditMyPage : AppCompatActivity() {
 
     private lateinit var profileactivityResult: ActivityResultLauncher<Intent>
     private lateinit var miniroomactivityResult: ActivityResultLauncher<Intent>
@@ -29,6 +29,7 @@ class EditMyPage :  AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_mypage)
 
+        // 각종 뷰 및 UI 요소 초기화
         val backbutton = findViewById<ImageButton>(R.id.imb_back)
         val savebutton = findViewById<ImageButton>(R.id.imb_save)
         val profileSelectButton = findViewById<ImageButton>(R.id.imb_profile)
@@ -48,8 +49,10 @@ class EditMyPage :  AppCompatActivity(){
         Log.d("userinfo", userinfo.toString())
         Log.d("position", position.toString())
 
+
         profileactivityResult = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) { result ->
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 val data: Intent? = result.data
                 profileUri = data?.data as Uri
@@ -59,7 +62,8 @@ class EditMyPage :  AppCompatActivity(){
         }
 
         miniroomactivityResult = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()) { result ->
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 val data: Intent? = result.data
                 miniroomUri = data?.data as Uri
@@ -68,12 +72,14 @@ class EditMyPage :  AppCompatActivity(){
             }
         }
 
+        // 프로필 이미지 선택 버튼에 대한 동작 설정
         profileSelectButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
             profileactivityResult.launch(intent)
         }
 
+        // 미니룸 이미지 선택 버튼에 대한 동작 설정
         miniroomSelectButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
             intent.type = "image/*"
@@ -87,15 +93,15 @@ class EditMyPage :  AppCompatActivity(){
         dFavorites.text = userinfo.favorites.toString()
         dRoomname.setText(userinfo.roomname)
 
-        if(userinfo.changedProfileImg == Uri.EMPTY){
+        if (userinfo.changedProfileImg == Uri.EMPTY) {
             profileSelectButton.setImageResource(userinfo.profileImg)
-        }else{
+        } else {
             profileSelectButton.setImageURI(userinfo.changedProfileImg)
         }
 
-        if(userinfo.changedMiniroomImg == Uri.EMPTY){
+        if (userinfo.changedMiniroomImg == Uri.EMPTY) {
             miniroomSelectButton.setImageResource(userinfo.miniroom)
-        }else{
+        } else {
             miniroomSelectButton.setImageURI(userinfo.changedMiniroomImg)
         }
 
@@ -105,6 +111,7 @@ class EditMyPage :  AppCompatActivity(){
 
         rv_comment.adapter = EditCommentAdapter(userinfo.commentList)
 
+        // 저장 버튼 클릭 시 사용자 정보를 변경하고 MyPage 화면으로 이동
         savebutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
 
@@ -120,6 +127,7 @@ class EditMyPage :  AppCompatActivity(){
 
         }
 
+        // 뒤로 가기 버튼 클릭 시 MyPage 화면으로 이동
         backbutton.setOnClickListener {
             val intent = Intent(this, MyPage::class.java)
             intent.putExtra("position", position)
@@ -128,6 +136,7 @@ class EditMyPage :  AppCompatActivity(){
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
+        // 사진 버튼 클릭 시 EditPhotoPage 화면으로 이동
         photobutton.setOnClickListener {
             val intent = Intent(this, EditPhotoPage::class.java)
             intent.putExtra("position", position)
@@ -136,7 +145,6 @@ class EditMyPage :  AppCompatActivity(){
         }
 
     }
-
 
 
 }

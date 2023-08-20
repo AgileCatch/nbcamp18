@@ -12,11 +12,6 @@ import com.example.instagram.Data.Comment
 import com.example.instagram.Data.Userinfo
 import com.example.instagram.Data.UserinfoSingleton
 
-//        Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
-//        Comment("추지연", "어느별에서왔니도대체", R.drawable.girl2, "2023.08.15", "■■■■■□90% 충전중"),
-//        Comment("이승현", "우린 먼가 달라", R.drawable.man1, "2023.08.14", "거기 하늘라이프죠?"),
-//        Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"),
-
 class MainPage : AppCompatActivity() {
 
     val userinfoList = UserinfoSingleton.getUserinfoList()
@@ -28,7 +23,7 @@ class MainPage : AppCompatActivity() {
         //사용자이름 상단에 표시
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userInfo = userinfoList[0]
-        val welcome=findViewById<TextView>(R.id.welcome)
+        val welcome = findViewById<TextView>(R.id.welcome)
         val welcomeMessage = if (userInfo != null) {
             "환영합니다, ${userInfo.name} 님"
         } else {
@@ -40,7 +35,8 @@ class MainPage : AppCompatActivity() {
         val jiyeonUser = userinfoList.find { it.name == "추지연" } as Userinfo
         val jiyeonCommetList = arrayListOf<Comment>(
             Comment("김영현", "관심일촌", R.drawable.girl1, "2023.08.16", "18조 화이팅!"),
-            Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person"))
+            Comment("안주환", "너는나의엔돌핀", R.drawable.man2, "2023.08.13", "Very important person")
+        )
         UserinfoSingleton.setcommetList(jiyeonUser, jiyeonCommetList)
 
         val yeonghyeonUser = userinfoList.find { it.name == "김영현" } as Userinfo
@@ -53,16 +49,16 @@ class MainPage : AppCompatActivity() {
 
         //피드 추가 : 넣는 순서대로 뜨기 때문에 순서를 잘 확인해야함
         val profileList = arrayListOf(
-            userinfoList.find{it.name == "김영현"} as Userinfo,
-            userinfoList.find{it.name == "이승현"} as Userinfo,
-            userinfoList.find{it.name == "추지연"} as Userinfo,
-            userinfoList.find{it.name == "안주환"} as Userinfo,
+            userinfoList.find { it.name == "김영현" } as Userinfo,
+            userinfoList.find { it.name == "이승현" } as Userinfo,
+            userinfoList.find { it.name == "추지연" } as Userinfo,
+            userinfoList.find { it.name == "안주환" } as Userinfo,
         )
 
-        if (UserinfoSingleton.getUserinfoList().size > 4){
+        if (UserinfoSingleton.getUserinfoList().size > 4) {
             val userinfoList = UserinfoSingleton.getUserinfoList()
 
-            for(i in 0 until userinfoList.size-4){
+            for (i in 0 until userinfoList.size - 4) {
                 val userinfo = userinfoList[i]
                 profileList.add(0, userinfo)
             }

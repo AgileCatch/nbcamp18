@@ -14,9 +14,9 @@
         android:layout_marginTop="22dp"
         android:background="@drawable/border"
 
-        android:padding="10dp"
         android:hint="이메일 아이디"
         android:inputType="textEmailAddress"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
 
         android:singleLine="false"
@@ -33,9 +33,9 @@
         android:layout_marginTop="22dp"
         android:background="@drawable/border"
 
-        android:padding="10dp"
         android:hint="비밀번호"
         android:inputType="textPassword"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
 
         android:singleLine="false"
@@ -63,9 +63,9 @@
         android:layout_marginTop="22dp"
         android:background="@drawable/border"
 
-        android:padding="10dp"
         android:hint="닉네임"
         android:inputType="text"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
 
         android:singleLine="false"
@@ -82,9 +82,9 @@
         android:layout_marginTop="22dp"
         android:background="@drawable/border"
 
-        android:padding="10dp"
         android:hint=" 이름"
         android:inputType="text"
+        android:padding="10dp"
         android:selectAllOnFocus="false"
         android:singleLine="false"
         app:layout_constraintEnd_toEndOf="parent"
