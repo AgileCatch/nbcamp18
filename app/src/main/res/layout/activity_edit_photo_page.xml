@@ -124,12 +124,12 @@
                         android:text="Add"
                         android:textColor="@color/blue"
                         android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/iv_photo"
+                        app:layout_constraintBottom_toTopOf="@+id/imb_photo"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
-                        android:id="@+id/iv_photo"
+                        android:id="@+id/imb_photo"
                         android:layout_width="360dp"
                         android:layout_height="248dp"
                         android:layout_marginStart="10dp"
@@ -155,7 +155,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_photo" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_photo" />
 
                     <TextView
                         android:id="@+id/edit_photo_datetime"
@@ -168,7 +168,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/edit_add"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -176,10 +176,10 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="추가버튼"
                         android:src="@drawable/baseline_add_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
-                        app:layout_constraintEnd_toEndOf="@+id/iv_photo"
-                        app:layout_constraintStart_toStartOf="@+id/iv_photo"
-                        app:layout_constraintTop_toTopOf="@+id/iv_photo" />
+                        app:layout_constraintBottom_toBottomOf="@+id/imb_photo"
+                        app:layout_constraintEnd_toEndOf="@+id/imb_photo"
+                        app:layout_constraintStart_toStartOf="@+id/imb_photo"
+                        app:layout_constraintTop_toTopOf="@+id/imb_photo" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

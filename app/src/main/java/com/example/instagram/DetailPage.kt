@@ -42,13 +42,6 @@ class DetailPage : AppCompatActivity() {
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
-        //사진첩으로 화면전환
-        val bt_photo = findViewById<Button>(R.id.bt_photo)
-        bt_photo.setOnClickListener {
-            val intent = Intent(this, PhotoAlbumPage::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        }
 
 
         //Intent로 데이터 가져오기
@@ -121,6 +114,15 @@ class DetailPage : AppCompatActivity() {
             } else {
                 showToast("비어있는 칸이 있습니다.")
             }
+        }
+
+        //사진첩으로 화면전환
+        val bt_photo = findViewById<Button>(R.id.bt_photo)
+        bt_photo.setOnClickListener {
+            val intent = Intent(this, PhotoAlbumPage::class.java)
+            intent.putExtra("position", num)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
 

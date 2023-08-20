@@ -3,11 +3,13 @@ package com.example.instagram
 import DataManager
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.PhotoAlbumAdapter
 import com.example.instagram.Data.PhotoCard
+import com.example.instagram.Data.UserinfoSingleton
 
 private val photocardList = arrayListOf<PhotoCard>()
 
@@ -18,6 +20,12 @@ class PhotoAlbumPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo_album_page)
 
+
+        val PageText = findViewById<TextView>(R.id.rightText)
+
+        val position = intent.getIntExtra("position", 0)
+        val userinfo = UserinfoSingleton.getUserinfoList()[position]
+        PageText.text = "${userinfo.name}님의 미니홈피"
 
         //뒤로가기 버튼작동
         val backButton = findViewById<ImageButton>(R.id.imb_back)

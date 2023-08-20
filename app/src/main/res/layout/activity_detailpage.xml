@@ -64,7 +64,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/neodgm"
         android:text="사이좋은 사람들, 싸이월드"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
@@ -111,7 +111,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"
                         android:text="TODAY           | 999"
-                        android:textSize="10dp"
+                        android:textSize="10sp"
                         app:layout_constraintStart_toEndOf="@+id/imb_profile"
                         app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
@@ -123,7 +123,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="50dp"
                         android:text="사이좋은 사람들 \n싸이월드"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/imb_profile"
                         app:layout_constraintTop_toTopOf="@+id/imb_profile" />
 
@@ -134,7 +134,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="25dp"
                         android:text="김사이"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imb_profile"
                         app:layout_constraintTop_toTopOf="@+id/imb_profile" />
@@ -147,7 +147,7 @@
                         android:layout_marginTop="5dp"
                         android:text="42"
                         android:textColor="@color/orenge"
-                        android:textSize="10dp"
+                        android:textSize="10sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/imb_profile"
                         app:layout_constraintTop_toTopOf="@+id/imb_profile" />
@@ -162,7 +162,7 @@
                         android:text="일촌"
 
                         android:textColor="@color/blue"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
@@ -174,7 +174,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="8dp"
                         android:text="999"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toEndOf="@+id/tv_1chon"
                         app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
 
@@ -187,7 +187,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="즐겨찾기"
                         android:textColor="@color/blue"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/tv_1chon_num"
                         app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
@@ -200,7 +200,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="15dp"
                         android:text="999"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/tv_favorites"
                         app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
@@ -214,7 +214,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="TODAY IS.."
                         android:textColor="@color/blue"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imb_profile" />
@@ -247,7 +247,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="사진첩"
                         android:textColor="@color/blue"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -267,7 +267,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="방명록"
                         android:textColor="@color/blue"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -299,7 +299,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="Mini Room"
                         android:textColor="@color/blue"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -311,7 +311,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="15dp"
                         android:text="우리집 방안"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -359,7 +359,7 @@
                         android:fontFamily="@font/neodgm"
                         android:text="What Friends Say"
                         android:textColor="@color/blue"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -393,7 +393,7 @@
                         android:layout_marginStart="10dp"
                         android:background="@drawable/profile_circle"
                         android:hint="일촌명을 적어주세요.(10자 제한)"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView"
                         app:layout_constraintStart_toEndOf="@+id/imageView"
                         app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -404,7 +404,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="조은이"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView"
                         app:layout_constraintStart_toEndOf="@+id/et_ilchon"
@@ -422,7 +422,7 @@
                         android:hint="일촌평을 작성해주세요.(100자 제한)"
                         android:maxLength="100"
                         android:padding="10dp"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/et_ilchon"
@@ -438,7 +438,7 @@
                         android:padding="0dp"
                         android:text="확인"
                         android:textColor="@color/blue"
-                        android:textSize="13dp"
+                        android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
