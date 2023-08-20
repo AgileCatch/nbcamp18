@@ -26,9 +26,10 @@ class PhotoAlbumAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.title.text = photocardList[position].title
-        holder.photo.setImageResource(photocardList[position].photo)
+        holder.photo.setImageURI(photocardList[position].imageUri)
         holder.content.text = photocardList[position].content
         holder.content_datetime.text = photocardList[position].datetime
+
     }
 
     override fun getItemCount(): Int {

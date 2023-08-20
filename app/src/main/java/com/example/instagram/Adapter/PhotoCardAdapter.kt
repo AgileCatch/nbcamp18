@@ -36,7 +36,7 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.title.text = photocardList.get(position).title//제목
-        holder.photo.setImageResource(photocardList.get(position).photo)
+        holder.photo.setImageURI(photocardList[position].imageUri)
         holder.content.text = photocardList.get(position).content//내용
 
         val commentDate = photocardList[position].datetime // 사진의 날짜 데이터 가져오기
@@ -131,8 +131,10 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
 
     //삭제 작업 담당 함수
     private fun DeleteCard(position: Int) {
-        photocardList.removeAt(position)  // 아이템 삭제
-        notifyDataSetChanged() // 삭제 후 화면 갱신하기
+        val removedPhotoCard = photocardList.removeAt(position) // 아이템 삭제 및 삭제된 아이템 가져오기
+        DataManager.removePhotoCard(removedPhotoCard) // DataManager에서 삭제
+
+        notifyItemRemoved(position) // 삭제 후 화면 갱신하기
     }
 
 }
