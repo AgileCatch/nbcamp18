@@ -70,16 +70,6 @@
             android:text="@string/personal_page"
             android:textStyle="bold"/>
 
-        <Button
-            android:fontFamily="@font/neodgm"
-            android:id="@+id/button"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:background="#00ff0000"
-            android:text="@string/edit"
-            android:textColor="@color/black"
-            android:layout_gravity="right"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

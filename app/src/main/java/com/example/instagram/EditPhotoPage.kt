@@ -1,11 +1,12 @@
 package com.example.instagram
 
 import DataManager
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -14,66 +15,67 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagram.Adapter.PhotoCardAdapter
 import com.example.instagram.Data.PhotoCard
 
-//사진초기화
-
-private var selectedPhotoUri : Uri = Uri.EMPTY
 class EditPhotoPage : AppCompatActivity() {
 
+    private lateinit var photoActivityResult: ActivityResultLauncher<Intent>
+    private lateinit var selectedPhotoUri: Uri
 
-    private lateinit var photoactivityResult: ActivityResultLauncher<Intent>
+    companion object {
+        private const val PERMISSION_REQUEST_CODE = 123
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_photo_page)
 
-        val addphotobutton = findViewById<ImageButton>(R.id.edit_add)
+        val photoButton = findViewById<ImageButton>(R.id.imb_photo)
+        val addButton = findViewById<Button>(R.id.edit_photo_add)
+        val rv_photocard = findViewById<RecyclerView>(R.id.rv_photo)
 
-
-        photoactivityResult = registerForActivityResult(
+        photoActivityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 val data: Intent? = result.data
                 selectedPhotoUri = data?.data as Uri
 
-
-                val addphotobutton = findViewById<ImageView>(R.id.iv_photo)
-                addphotobutton.scaleType = ImageView.ScaleType.CENTER_CROP
-                addphotobutton.setImageURI(selectedPhotoUri) // 이미지 업데이트
+                photoButton.setImageURI(selectedPhotoUri)
+                photoButton.scaleType = ImageView.ScaleType.CENTER_CROP
             }
         }
 
-        addphotobutton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-            intent.type = "image/*"
-            photoactivityResult.launch(intent)
+        photoButton.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+                intent.type = "image/*"
+                photoActivityResult.launch(intent)
+            } else {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    PERMISSION_REQUEST_CODE
+                )
+            }
         }
 
-
-
-        //뒤로가기 버튼작동
-        val backButton = findViewById<ImageButton>(R.id.imb_back)
-        backButton.setOnClickListener {
-            finish()
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        }
-
-        //사진첩 리사이클 뷰 연결
-        val rv_photo = findViewById<RecyclerView>(R.id.rv_photo)
-        rv_photo.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rv_photo.setHasFixedSize(true)
-
-        // DataManager에서 사진 데이터를 가져와서 어댑터에 설정
         val photoCardList = DataManager.getPhotoCardList()
-        val arrayListPhotoCardList = ArrayList(photoCardList) // List를 ArrayList로 변환
-        rv_photo.adapter = PhotoCardAdapter(arrayListPhotoCardList)
 
-        //사진 추가하기
-        val button = findViewById<Button>(R.id.edit_photo_add)
-        button.setOnClickListener {
+        rv_photocard.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_photocard.setHasFixedSize(true)
+
+        rv_photocard.adapter = PhotoCardAdapter(photoCardList)
+
+        addButton.setOnClickListener {
             val titleInput = findViewById<EditText>(R.id.edit_title)//제목
             val contentInput = findViewById<EditText>(R.id.edit_content)//내용
 
@@ -84,25 +86,25 @@ class EditPhotoPage : AppCompatActivity() {
             val maxIlchonLength = 10
             val maxContentLength = 100
 
-
             if (titleText.isNotEmpty() && contentText.isNotEmpty()) {
                 if (titleText.length <= maxIlchonLength && contentText.length <= maxContentLength) {
-                    if (selectedPhotoUri != null) { // 사진이 선택되었을 경우에만 추가
+                    if (::selectedPhotoUri.isInitialized) {
                         val newPhotoCard = PhotoCard(
                             titleText,
                             selectedPhotoUri,
                             getCurrentDate(),
                             contentText
                         )
-                        DataManager.addPhotoCard(newPhotoCard) // DataManager에 사진 추가
+
+                        DataManager.addPhotoCard(newPhotoCard)
+                        rv_photocard.adapter?.notifyDataSetChanged()
 
                         showToast("사진이 등록되었습니다.")
 
                         // 입력 필드 비우기
                         titleInput.text.clear()
                         contentInput.text.clear()
-                        addphotobutton.setImageURI(null) // 이미지 초기화
-                        rv_photo.adapter?.notifyDataSetChanged() // 어댑터 갱신
+                        photoButton.setImageURI(null) // 이미지 초기화
 
                     } else {
                         showToast("사진을 선택해주세요.")
@@ -121,6 +123,13 @@ class EditPhotoPage : AppCompatActivity() {
             } else {
                 showToast("비어있는 칸이 있습니다.")
             }
+        }
+
+        //뒤로가기 버튼작동
+        val backButton = findViewById<ImageButton>(R.id.imb_back)
+        backButton.setOnClickListener {
+            finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 

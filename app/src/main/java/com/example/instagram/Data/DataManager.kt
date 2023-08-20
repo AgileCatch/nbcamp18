@@ -12,7 +12,7 @@ object DataManager {
         photocardList.add(PhotoCard("Title 3", Uri.parse("android.resource://com.example.instagram/${R.drawable.girl2}"), "2023/08/03", "Content 3"))
     }
 
-    fun getPhotoCardList(): List<PhotoCard> {
+    fun getPhotoCardList(): ArrayList<PhotoCard> {
         return photocardList
     }
 
