@@ -1,8 +1,10 @@
 package com.example.instagram.Data
 
+import android.net.Uri
+
 data class PhotoCard (
-    val title:String,
-    val photo:Int,
+    var title:String,
+    val imageUri: Uri?,
     val datetime:String,
-    val content:String
+    var content:String
 )

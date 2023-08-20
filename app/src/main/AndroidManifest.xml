@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,16 +15,20 @@
         tools:targetApi="31">
         <activity
             android:name=".PhotoAlbumPage"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".EditPhotoPage"
             android:exported="false" />
         <activity
             android:name=".SIgnUpPage"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".MainPage"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".DetailPage"
             android:exported="false" />
@@ -33,8 +38,6 @@
         <activity
             android:name=".MyPage"
             android:exported="false" />
-
-
         <activity
             android:name=".SIgnInPage"
             android:exported="true">
@@ -44,6 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

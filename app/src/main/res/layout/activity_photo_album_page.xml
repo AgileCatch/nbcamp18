@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PhotoAlbumPage"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".PhotoAlbumPage">
 
     <!-- AppBarLayout을 추가합니다 -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
         <!-- Toolbar를 추가합니다 -->
@@ -62,19 +63,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:text="사진첩"
-        android:textSize="17dp"
         android:fontFamily="@font/neodgm"
+        android:text="사진첩"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         tools:ignore="MissingConstraints" />
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="644dp"
+        android:layout_width="match_parent"
+        android:layout_height="640dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -91,7 +95,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2"/>
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
 
         </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.instagram.Adapter
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,9 +18,10 @@ import com.example.instagram.MyPage
 import com.example.instagram.R
 
 
-class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>) : RecyclerView.Adapter<FeedAdapter.CustomViewHolder>(){
+class FeedAdapter(val feedList: ArrayList<Userinfo>) :
+    RecyclerView.Adapter<FeedAdapter.CustomViewHolder>() {
 
-    class CustomViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemCard = itemView.findViewById<CardView>(R.id.item_card)
         val profileImg = itemView.findViewById<ImageButton>(R.id.ib_profile)
         val profileName = itemView.findViewById<TextView>(R.id.tv_name)
@@ -27,32 +30,49 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_feed_recycler, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_feed_recycler, parent, false)
         return CustomViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val feedItem = feedList[position]
 
-        holder.profileImg.setImageResource(feedItem.profileImg)
         holder.profileName.text = feedItem.id
-        holder.feedImg.setImageResource(feedItem.miniroom)
         holder.feedText.text = feedItem.description
 
+        if (feedItem.changedProfileImg == Uri.EMPTY) {
+            holder.profileImg.setImageResource(feedItem.profileImg)
+        } else {
+            holder.profileImg.setImageURI(feedItem.changedProfileImg)
+        }
+
+        if (feedItem.changedMiniroomImg == Uri.EMPTY) {
+            holder.feedImg.setImageResource(feedItem.miniroom)
+        } else {
+            holder.feedImg.setImageURI(feedItem.changedMiniroomImg)
+        }
+
         holder.itemCard.setOnClickListener {
-            if(position == 0){
+            if (position == 0) {
                 val intent = Intent(it.context, MyPage::class.java)
                 updateData(position)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
-            }else{
+                (it.context as Activity).overridePendingTransition(
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+                )
+            } else {
                 val intent = Intent(it.context, DetailPage::class.java)
                 updateData(position)
                 intent.putExtra("position", position)
                 it.context.startActivity(intent)
+                (it.context as Activity).overridePendingTransition(
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+                )
             }
-
-
         }
     }
 
@@ -60,22 +80,11 @@ class FeedAdapter(val feedList: ArrayList<Userinfo>, var userList:List<Userinfo>
         return feedList.size
     }
 
-    fun updateData(position: Int){
+    fun updateData(position: Int) {
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[position]
 
-        UserinfoSingleton.updateUserinfo(
-            userinfo,
-            userinfo.name,
-            userinfo.id,
-            userinfo.profileImg,
-            userinfo.today + 1,
-            userinfo.description,
-            userinfo.ilchon,
-            userinfo.favorites,
-            userinfo.miniroom,
-            userinfo.roomname
-        )
+        UserinfoSingleton.todayIncrease(userinfo)
     }
 
 

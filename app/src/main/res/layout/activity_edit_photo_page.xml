@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditPhotoPage"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".EditPhotoPage">
 
     <!-- AppBarLayout을 추가합니다 -->
     <com.google.android.material.appbar.AppBarLayout
@@ -19,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/blue" >
+            android:background="@color/blue">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -57,7 +57,6 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -67,9 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/neodgm"
         android:text="사진첩"
         android:textSize="17dp"
-        android:fontFamily="@font/neodgm"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
@@ -78,8 +77,10 @@
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="644dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="1dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -92,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardCornerRadius="10dp" >
+                app:cardCornerRadius="10dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -104,8 +105,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="15dp"
-                        android:hint="제목을 입력하세요."
                         android:background="@drawable/profile_circle"
+                        android:hint="제목을 입력하세요."
                         android:textSize="15dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -124,12 +125,12 @@
                         android:text="Add"
                         android:textColor="@color/blue"
                         android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/iv_photo"
+                        app:layout_constraintBottom_toTopOf="@+id/imb_photo"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageButton
-                        android:id="@+id/iv_photo"
+                        android:id="@+id/imb_photo"
                         android:layout_width="360dp"
                         android:layout_height="248dp"
                         android:layout_marginStart="10dp"
@@ -148,14 +149,14 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="40dp"
-                        android:padding="10dp"
-                        android:hint="내용을 입력하세요."
                         android:background="@drawable/profile_circle"
+                        android:hint="내용을 입력하세요."
+                        android:padding="10dp"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/iv_photo" />
+                        app:layout_constraintTop_toBottomOf="@+id/imb_photo" />
 
                     <TextView
                         android:id="@+id/edit_photo_datetime"
@@ -168,7 +169,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <ImageButton
+                    <ImageView
                         android:id="@+id/edit_add"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -176,10 +177,10 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:contentDescription="추가버튼"
                         android:src="@drawable/baseline_add_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/iv_photo"
-                        app:layout_constraintEnd_toEndOf="@+id/iv_photo"
-                        app:layout_constraintStart_toStartOf="@+id/iv_photo"
-                        app:layout_constraintTop_toTopOf="@+id/iv_photo" />
+                        app:layout_constraintBottom_toBottomOf="@+id/imb_photo"
+                        app:layout_constraintEnd_toEndOf="@+id/imb_photo"
+                        app:layout_constraintStart_toStartOf="@+id/imb_photo"
+                        app:layout_constraintTop_toTopOf="@+id/imb_photo" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -195,7 +196,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2"/>
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
         </LinearLayout>
     </ScrollView>
