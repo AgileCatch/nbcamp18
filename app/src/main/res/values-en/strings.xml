@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">instagram</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+
+    <string name="login_failed">Email/password is incorrect.</string>
+
+    <string name="miniroomTitle">Good people, Cyworld</string>
+    <string name="miniroomStatusText">Status Context must be \n >50 characters</string>
+    <string name="welcometext">Welcom!</string>
+    <string name="personal_page">Personal Page</string>
+    <string name="edit">EDIT</string>
+    <string name="ilchon">Ilchon</string>
+    <string name="favorite">Favorite</string>
+    <string name="photoalbum">Photo Album</string>
+    <string name="guestbook">Guest Book</string>
+    <string name="addbutton">ADD</string>
+    <string name="titleInput">Please enter a title.</string>
+    <string name="contextInput">Please enter a context.</string>
+    <string name="ilchonInput">Please write a ilchon name.(Limit 10)</string>
+    <string name="ilchonContextInput">Please write a comment. (Limit 100)</string>
+    <string name="saveButton">SAVE</string>
+    <string name="cancelButton">CANCEL</string>
+
+    <string name="emailID">EMAIL ID</string>
+    <string name="password">PASSWORD</string>
+    <string name="name">NAME</string>
+    <string name="nickname">NICKNAME</string>
+    <string name="signin">SIGN IN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="miniroom">\'S MINIROOM</string>
+
+    <string name="loginMessage">Login was successful.</string>
+    <string name="loginFailed">Email/password is incorrect.</string>
+    <string name="signupMessage">Member registration successful!</string>
+    <string name="informationMessage">There is information not entered.</string>
+
+    <string name="CommentRegistered">Comment has been registered.</string>
+    <string name="PhotoRegistered">PhotoCard has been registered.</string>
+    <string name="PhotoSelect">Please select a picture.</string>
+    <string name="TitleInput">Please write a title. (Limit 10)</string>
+    <string name="ContextInput">Please write a context. (Limit 100)</string>
+
+    <string name="notice">NOTICE</string>
+    <string name="commentDelete">Are you sure you want to delete your comment?</string>
+    <string name="Yes">YES</string>
+    <string name="No">NO</string>
+    <string name="cancelMessage">Canceled.</string>
+
+    <string name="contextDelete">Are you sure you want to delete your context?</string>
+</resources>

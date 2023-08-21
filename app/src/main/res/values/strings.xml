@@ -8,7 +8,8 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">로그인 실패</string>
+
+    <string name="login_failed">이메일/비밀번호가 틀립니다.</string>
 
     <string name="miniroomTitle">사이좋은 사람들, 싸이월드</string>
     <string name="miniroomStatusText">상태글을 적어주세요.\n(50자이내)</string>
