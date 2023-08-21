@@ -93,9 +93,9 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
     @SuppressLint("SuspiciousIndentation")
     private fun showDeleteConfirmation(context: Context, position: Int) {
         val dialogBuilder = AlertDialog.Builder(context)
-            dialogBuilder.setTitle("안내")
+            dialogBuilder.setTitle(context.getString(R.string.notice))
         val messageTextView = TextView(context)
-        messageTextView.text = "글을 삭제하시겠습니까?"
+        messageTextView.text = context.getString(R.string.contextDelete)
         messageTextView.gravity = Gravity.CENTER // 중앙 정렬을 설정합니다.
 
         messageTextView.setPadding(0, 100, 0, 50)
@@ -104,12 +104,12 @@ class PhotoCardAdapter(var photocardList: ArrayList<PhotoCard>) : RecyclerView.A
         dialogBuilder.setView(messageTextView)
         dialogBuilder.setIcon(R.drawable.baseline_notifications_none_24)
 
-        dialogBuilder.setPositiveButton("예") { _, _ ->
+        dialogBuilder.setPositiveButton(context.getString(R.string.Yes)) { _, _ ->
             DeleteCard(position)
         }
 
-        dialogBuilder.setNegativeButton("아니오") { _, _ ->
-            Toast.makeText(context, "취소되었습니다", Toast.LENGTH_SHORT).show()
+        dialogBuilder.setNegativeButton(context.getString(R.string.No)) { _, _ ->
+            Toast.makeText(context, context.getString(R.string.cancelMessage), Toast.LENGTH_SHORT).show()
         }
 
         val alertDialog = dialogBuilder.create()

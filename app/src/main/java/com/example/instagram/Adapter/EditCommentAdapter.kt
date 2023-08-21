@@ -42,9 +42,9 @@ class EditCommentAdapter(var commentList:ArrayList<Comment>) : RecyclerView.Adap
 
         holder.btn_delete.setOnClickListener{
             val alertDialogBuilder = AlertDialog.Builder(it.context)
-            alertDialogBuilder.setTitle("안내")
+            alertDialogBuilder.setTitle(it.context.getString(R.string.notice))
             val messageTextView = TextView(it.context)
-            messageTextView.text = "일촌평을 삭제하시겠습니까?"
+            messageTextView.text =  it.context.getString(R.string.commentDelete)
             messageTextView.gravity = Gravity.CENTER // 중앙 정렬을 설정합니다.
 
             messageTextView.setPadding(0, 100, 0, 50)
@@ -53,14 +53,14 @@ class EditCommentAdapter(var commentList:ArrayList<Comment>) : RecyclerView.Adap
             alertDialogBuilder.setView(messageTextView)
             alertDialogBuilder.setIcon(R.drawable.baseline_notifications_none_24)
 
-            alertDialogBuilder.setPositiveButton("예") { _, _ ->
+            alertDialogBuilder.setPositiveButton(it.context.getString(R.string.Yes)) { _, _ ->
                 val clickedItem = commentList[position]
                 commentList.remove(clickedItem)  // 아이템 삭제
                 notifyItemRemoved(position)
             }
 
-            alertDialogBuilder.setNegativeButton("아니오") { _, _ ->
-                Toast.makeText(it.context, "취소되었습니다", Toast.LENGTH_SHORT).show()
+            alertDialogBuilder.setNegativeButton(it.context.getString(R.string.No)) { _, _ ->
+                Toast.makeText(it.context, it.context.getString(R.string.cancelMessage), Toast.LENGTH_SHORT).show()
             }
 
             val alertDialog = alertDialogBuilder.create()

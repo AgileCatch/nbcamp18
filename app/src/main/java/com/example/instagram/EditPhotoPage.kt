@@ -100,7 +100,7 @@ class EditPhotoPage : AppCompatActivity() {
                         DataManager.addPhotoCard(newPhotoCard)
                         rv_photocard.adapter?.notifyDataSetChanged()
 
-                        showToast("사진이 등록되었습니다.")
+                        showToast(getString(R.string.PhotoRegistered))
 
                         // 입력 필드 비우기
                         titleInput.text.clear()
@@ -108,21 +108,21 @@ class EditPhotoPage : AppCompatActivity() {
                         photoButton.setImageURI(null) // 이미지 초기화
 
                     } else {
-                        showToast("사진을 선택해주세요.")
+                        showToast(getString(R.string.PhotoSelect))
                     }
                 } else {
                     if (titleText.length > maxIlchonLength) {
                         // 타이틀 글자 제한 초과 팝업 메시지
-                        showToast("제목은 ${maxIlchonLength}자 이하로 입력해주세요.")
+                        showToast(getString(R.string.TitleInput))
                     }
 
                     if (contentText.length > maxContentLength) {
                         // 내용 글자 제한 초과 팝업 메시지
-                        showToast("글은 ${maxContentLength}자 이하로 입력해주세요.")
+                        showToast(getString(R.string.ContextInput))
                     }
                 }
             } else {
-                showToast("비어있는 칸이 있습니다.")
+                showToast(getString(R.string.informationMessage))
             }
         }
 

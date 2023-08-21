@@ -18,12 +18,11 @@ class PhotoAlbumPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_photo_album_page)
 
-
         val PageText = findViewById<TextView>(R.id.rightText)
 
         val position = intent.getIntExtra("position", 0)
         val userinfo = UserinfoSingleton.getUserinfoList()[position]
-        PageText.text = "${userinfo.name}님의 미니홈피"
+        PageText.text = "${userinfo.name}" + getString(R.string.miniroom)
 
         //뒤로가기 버튼작동
         val backButton = findViewById<ImageButton>(R.id.imb_back)
