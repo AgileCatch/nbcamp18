@@ -118,6 +118,7 @@ class EditMyPage : AppCompatActivity() {
             UserinfoSingleton.changeUserEdit(
                 userinfo,
                 dDescription.text.toString(),
+                dRoomname.text.toString(),
                 profileUri,
                 miniroomUri
             )
