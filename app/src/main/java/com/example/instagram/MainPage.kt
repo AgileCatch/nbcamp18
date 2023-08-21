@@ -25,9 +25,9 @@ class MainPage : AppCompatActivity() {
         val userInfo = userinfoList[0]
         val welcome = findViewById<TextView>(R.id.welcome)
         val welcomeMessage = if (userInfo != null) {
-            "환영합니다, ${userInfo.name} 님"
+            getString(R.string.welcometext) + " ${userInfo.name}"
         } else {
-            "환영합니다, 손님"
+            getString(R.string.welcometext) + " Customer"
         }
         welcome.text = welcomeMessage
 

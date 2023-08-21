@@ -31,7 +31,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/neodgm"
             android:padding="0dp"
-            android:text="저장하기"
+            android:text="@string/saveButton"
             android:textColor="@color/blue"
             android:textSize="15sp" />
 
@@ -45,7 +45,7 @@
             android:background="@android:color/transparent"
             android:fontFamily="@font/neodgm"
             android:padding="0dp"
-            android:text="취소하기"
+            android:text="@string/cancelButton"
             android:textColor="@color/blue" />
 
     </LinearLayout>

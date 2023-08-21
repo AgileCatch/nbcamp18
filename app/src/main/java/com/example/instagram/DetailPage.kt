@@ -43,13 +43,12 @@ class DetailPage : AppCompatActivity() {
         }
 
 
-
         //Intent로 데이터 가져오기
         var num = intent.getIntExtra("position", 0)
         val userinfoList = UserinfoSingleton.getUserinfoList()
         val userinfo = userinfoList[num]
 
-        toolbarName.text = "${userinfo.name}의 미니홈피"
+        toolbarName.text = "${userinfo.name}" + getString(R.string.miniroom)
         dName.text = userinfo.name
         dProfileImg.setImageResource(userinfo.profileImg)
         dProfileImgSquare.setImageResource(userinfo.profileImg)
@@ -74,6 +73,7 @@ class DetailPage : AppCompatActivity() {
             val ilchonInput = findViewById<EditText>(R.id.et_ilchon)//일촌명
             val contentInput = findViewById<EditText>(R.id.et_content)//일촌평
 
+
             val ilchonText = ilchonInput.text.toString()
             val contentText = contentInput.text.toString()
 
@@ -88,14 +88,14 @@ class DetailPage : AppCompatActivity() {
                         Comment(
                             userinfoList[0].name,
                             ilchonText,
-                            R.drawable.man1,
+                            R.drawable.man3,
                             getCurrentDate(),
                             contentText
                         )
                     UserinfoSingleton.addcommentList(userinfo, newComment)
                     rv_comment.adapter?.notifyItemInserted(userinfo.commentList.size - 1)
 
-                    showToast("일촌평이 등록 되었습니다.")
+                    showToast(getString(R.string.CommentRegistered))
 
                     // 입력 필드 비우기
                     ilchonInput.text.clear()
@@ -103,16 +103,16 @@ class DetailPage : AppCompatActivity() {
                 } else {
                     if (ilchonText.length > maxIlchonLength) {
                         // 일촌명 글자 제한 초과 팝업 메시지
-                        showToast("일촌명은 ${maxIlchonLength}자 이하로 입력해주세요.")
+                        showToast(getString(R.string.ilchonInput))
                     }
 
                     if (contentText.length > maxContentLength) {
                         // 일촌평 글자 제한 초과 팝업 메시지
-                        showToast("일촌평은 ${maxContentLength}자 이하로 입력해주세요.")
+                        showToast(getString(R.string.ilchonContextInput))
                     }
                 }
             } else {
-                showToast("비어있는 칸이 있습니다.")
+                showToast(getString(R.string.informationMessage))
             }
         }
 

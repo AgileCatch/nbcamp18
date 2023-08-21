@@ -35,14 +35,14 @@ class SIgnInPage : AppCompatActivity() {
             val savedPassWord = intent.getStringExtra("password")
 
             if (email == savedEmail && password == savedPassWord) {
-                Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.loginMessage), Toast.LENGTH_SHORT).show()
                 val mainPageIntent = Intent(this, MainPage::class.java)
                 mainPageIntent.putExtra("id", email)
                 startActivity(mainPageIntent)
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
             } else {
-                Toast.makeText(this, "이메일/비밀번호가 틀립니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.login_failed), Toast.LENGTH_SHORT).show()
             }
         }
         val emailData = intent.getStringExtra("email")
