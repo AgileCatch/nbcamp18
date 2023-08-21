@@ -24,7 +24,7 @@
 
 - [x] **Activity 전환시 animation 구현**
 
-- [ ] **영어 버전으로 변경 적용해보기(string.xml)**
+- [x] **영어 버전으로 변경 적용해보기(string.xml)**
 
 
 
