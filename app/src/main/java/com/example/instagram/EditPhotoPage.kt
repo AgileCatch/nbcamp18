@@ -133,6 +133,8 @@ class EditPhotoPage : AppCompatActivity() {
         }
     }
 
+
+
     // 현재 날짜를 가져오는 함수
     private fun getCurrentDate(): String {
         val currentDate = java.text.SimpleDateFormat("yyyy/MM/dd", java.util.Locale.getDefault())
