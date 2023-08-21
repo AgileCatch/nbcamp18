@@ -34,9 +34,9 @@ class SIgnUpPage : AppCompatActivity() {
 
 
             if (email.isBlank() || password.isBlank() || nickname.isBlank() || name.isBlank()) {
-                Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.informationMessage), Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "회원가입 성공!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signupMessage), Toast.LENGTH_SHORT).show()
 
 
                 // 새로운 사용자 정보 생성
