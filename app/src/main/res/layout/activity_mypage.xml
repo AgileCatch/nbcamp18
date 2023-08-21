@@ -312,6 +312,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="15dp"
                         android:text="우리집 방안"
+                        android:textColor="@color/black"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
