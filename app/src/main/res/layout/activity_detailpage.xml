@@ -382,7 +382,7 @@
                         android:layout_height="40dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="20dp"
-                        android:src="@drawable/man1"
+                        android:src="@drawable/man3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
