@@ -16,8 +16,9 @@ object UserinfoSingleton {
         userList.add(0, userinfo)
     }
 
-    fun changeUserEdit(userinfo: Userinfo, newDescription:String, newChangedProfileImg:Uri, newChangedMiniroomImg: Uri){
+    fun changeUserEdit(userinfo: Userinfo, newDescription:String, newRoomname:String, newChangedProfileImg:Uri, newChangedMiniroomImg: Uri){
         userinfo.description = newDescription
+        userinfo.roomname = newRoomname
         userinfo.changedProfileImg = newChangedProfileImg
         userinfo.changedMiniroomImg = newChangedMiniroomImg
     }
