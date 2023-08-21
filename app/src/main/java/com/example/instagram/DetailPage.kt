@@ -73,6 +73,7 @@ class DetailPage : AppCompatActivity() {
             val ilchonInput = findViewById<EditText>(R.id.et_ilchon)//일촌명
             val contentInput = findViewById<EditText>(R.id.et_content)//일촌평
 
+
             val ilchonText = ilchonInput.text.toString()
             val contentText = contentInput.text.toString()
 
@@ -87,7 +88,7 @@ class DetailPage : AppCompatActivity() {
                         Comment(
                             userinfoList[0].name,
                             ilchonText,
-                            R.drawable.man1,
+                            R.drawable.man3,
                             getCurrentDate(),
                             contentText
                         )
